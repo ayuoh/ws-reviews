@@ -64,3 +64,6 @@
   * 誹謗中傷防止のためアカウント登録時のX（旧Twitter）に登録して1ヶ月以上経ってないと投稿できないようにする
 * レコメンド機能（お気に入りからのレコメンド）
 　ユーザーのお気に入りに応じてレコメンドの投稿を表示させる
+
+## 画面遷移図
+https://www.figma.com/file/I75oR0txfRuq7D7yx4Bhnk/ws-revies?type=design&node-id=0-1&mode=design&t=pKQf7lOaVmcmGhEd-0
