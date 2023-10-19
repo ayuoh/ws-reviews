@@ -69,4 +69,4 @@
 https://www.figma.com/file/I75oR0txfRuq7D7yx4Bhnk/ws-revies?type=design&node-id=0-1&mode=design&t=pKQf7lOaVmcmGhEd-0
 
 ## ER 図
-<img src="./assets/ws-reviews-ER_231019.webp">
+<img src="./assets/ws-reviews-ER_231020.webp">
