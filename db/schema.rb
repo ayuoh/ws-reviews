@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_141834) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["review_id"], name: "index_favorites_on_review_id"
+    t.index ["user_id", "review_id"], name: "index_favorites_on_user_id_and_review_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -28,6 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_141834) do
     t.string "name", limit: 50
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["domain"], name: "index_organizers_on_domain", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -53,6 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_141834) do
     t.bigint "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["review_id", "tag_id"], name: "index_taggings_on_review_id_and_tag_id", unique: true
     t.index ["review_id"], name: "index_taggings_on_review_id"
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end
@@ -61,16 +64,20 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_141834) do
     t.string "name", limit: 50, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name", limit: 30, null: false
     t.string "description", limit: 1000, null: false
     t.string "mail", limit: 320, null: false
+    t.string "twitter"
     t.string "crypted_password"
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mail"], name: "index_users_on_mail", unique: true
+    t.index ["twitter"], name: "index_users_on_twitter", unique: true
   end
 
   create_table "web_pages", force: :cascade do |t|
@@ -80,6 +87,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_141834) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organizer_id"], name: "index_web_pages_on_organizer_id"
+    t.index ["url"], name: "index_web_pages_on_url", unique: true
   end
 
   add_foreign_key "favorites", "reviews"

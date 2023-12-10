@@ -6,5 +6,6 @@ class CreateOrganizers < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+    add_index :organizers, :domain, unique: true
   end
 end

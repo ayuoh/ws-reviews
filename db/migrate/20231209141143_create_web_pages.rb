@@ -7,5 +7,6 @@ class CreateWebPages < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+    add_index :web_pages, :url, unique:true
   end
 end
