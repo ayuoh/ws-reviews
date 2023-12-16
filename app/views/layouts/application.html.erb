@@ -12,8 +12,19 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <div class="text-gray-700 font-sans text-[15px] md:text-base">
+      <% if logged_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
+      <%= render 'shared/flash_message' %>
+      <main class="md:container md:mx-auto md:my-16 md:px-5">
+        <%= yield %>
+      </main>
+      <%= render 'shared/footer' %>
+
+      <%= javascript_include_tag 'application' %>
+  </div>
   </body>
 </html>
