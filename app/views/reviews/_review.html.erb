@@ -1,0 +1,30 @@
+<div class="flex justify-between md:shadow md:rounded-lg px-3 py-4 md:p-5 md:m-10 border-b border-b-[rgb(245, 240, 230)]">
+    <!-- icon -->
+    <div class="basis-12 md:basis-16 mr-2 md:mr-4 text-xs">
+      <%= image_tag 'sample.jpg', class: 'rounded-[50%] max-w-full w-[45px] md:w-[55px] h-[45px] md:h-[55px]' %>
+    </div>
+
+    <div class="flex-grow relative">
+      <!-- review内容 -->
+      <div>
+        <p class="text-right text-xs absolute top-0 right-0">2024/1/21〜2024/1/22</p>
+        <h3 class="font-semibold pt-6">reviewのタイトル</h3>
+        <div class="mb-2">
+          コンテンツが入ります。<br>
+          こうこうこうでした。
+        </div>
+      </div>
+
+      <!-- review対象 -->
+      <div class="flex border border-solid border-gray-200 rounded-2xl h-20 md:h-32">
+        <div class="flex items-center w-full">
+          <div class="basis-[5.5rem] md:basis-40 mr-2 md:mr-3 h-full"><%= image_tag 'sample.jpg', class: 'rounded-l-[0.9rem] h-full' %></div>
+          <div class="flex-grow flex flex-col md:flex-col-reverse pr-4">
+            <p class="text-gray-400 text-[0.8rem] hidden md:block md:max-w-sm md:whitespace-nowrap overflow-hidden overflow-ellipsis">サイトのdescriptionサイトのdescriptionサイトのdescriptionサイトのdescription</p>
+            <p class="max-w-[10rem] md:max-w-sm whitespace-nowrap overflow-hidden overflow-ellipsis">サイトのタイトルfgajngjahajrgjaサイトのタイトルfgajngjahajrgja</p>
+            <p class="text-gray-400 text-[0.8rem] max-w-[9.5rem] md:max-w-sm whitespace-nowrap overflow-hidden overflow-ellipsis">サイトのURLfjgnjsrngjanljrngjrjgbsjrbjhサイトのURLfjgnjsrngjanljrngjrjgbsjrbjh</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="text-gray-700 font-sans text-[15px] md:text-base">
+      <% if logged_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
+      <%= render 'shared/flash_message' %>
+      <main class="md:container md:mx-auto md:my-16 md:px-5">
+        <%= yield %>
+      </main>
+      <%= render 'shared/footer' %>
+
+      <%= javascript_include_tag 'application' %>
+  </div>
   </body>
 </html>
