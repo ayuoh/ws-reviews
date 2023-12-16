@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :favorite_reviews, through: :favorites, source: :review
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :mail, uniqueness: true, presence: true
+  validates :email, uniqueness: true
   validates :twitter, uniqueness: true
   validates :password, length: { minimum: 4 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
