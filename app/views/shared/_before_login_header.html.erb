@@ -7,7 +7,7 @@
         <input type="text" class="mr-1 md:mr-3 w-40 md:w-64 h-8 md:h-10 rounded-3xl border-gray-300 shadow-sm focus:ring-[#c9e8f8] focus:border-[#c9e8f8]">
       </form>
 
-      <button class="mr-1 md:mr-3 px-2 md:px-4 py-1 md:py-2 rounded bg-[rgb(166,217,226)] hover:bg-[rgb(115,207,223)] transition-colors text-white">ログイン</button>
+      <%= link_to 'ログイン', login_path,  class: 'mr-1 md:mr-3 px-2 md:px-4 py-1 md:py-2 rounded bg-[rgb(166,217,226)] hover:bg-[rgb(115,207,223)] transition-colors text-white' %>
       <%= link_to '新規登録', new_user_path,  class: 'px-2 md:px-4 py-1 md:py-2 rounded bg-[rgb(166,217,226)] hover:bg-[rgb(115,207,223)] transition-colors text-white' %>
     </div>
   </div>
