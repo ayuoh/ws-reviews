@@ -39,4 +39,9 @@ module WsReviews
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
+
+  class ActiveRecord::Base
+    singleton_class.attr_accessor :timestamped_migrations
+    self.timestamped_migrations = true
+  end
 end
