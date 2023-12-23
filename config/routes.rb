@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy', as: :logout
 
+  post "/oauth/:provider/callback" => "oauths#callback"
+  get "/oauth/:provider/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#oauth", :as => :auth_at_provider
+
   resources :users
   resources :reviews
 end
