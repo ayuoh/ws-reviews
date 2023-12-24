@@ -1,17 +1,16 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
+
   has_many :reviews, dependent: :destroy
   has_many :favorite, dependent: :destroy
   has_many :favorite_reviews, through: :favorites, source: :review
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :mail, uniqueness: true, presence: true
-  validates :twitter, uniqueness: true
-  validates :password, length: { minimum: 4 }, if: -> { new_record? || changes[:crypted_password] }
-  validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :reset_password_token, uniqueness: true, allow_nil: true
+  validates :twitter_name, presence: true, uniqueness: true
+  validates :twitter_id, presence: true, uniqueness: true
 
   def own?(object)
     self.id == object.user_id

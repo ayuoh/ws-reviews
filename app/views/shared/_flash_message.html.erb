@@ -1,3 +1,11 @@
 <% flash.each do |message_type, message| %>
-  <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+  <div class="my-4 flex justify-center">
+    <% if message_type == 'danger' %>
+      <%= content_tag(:div, message, class: "p-4 inline-block text-sm text-center text-red-800 rounded-lg bg-red-50", role: 'alert') %>
+    <% elsif message_type == 'success' %>
+      <%= content_tag(:div, message, class: "p-4 inline-block text-sm text-center text-green-800 rounded-lg bg-green-50", role: 'alert') %>
+    <% else %>
+      <%= content_tag(:div, message, class: "p-4 inline-block text-sm text-center text-blue-800 rounded-lg bg-blue-50", role: 'alert') %>
+    <% end %>
+  </div>
 <% end %>
