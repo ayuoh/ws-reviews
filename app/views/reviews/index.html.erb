@@ -1,4 +1,6 @@
 <div>
   <%= render 'reviews' %>
-  <%= render 'user_sessions/new' %>
+  <% unless logged_in? %>
+    <%= render 'user_sessions/new' %>
+  <% end %>
 </div>

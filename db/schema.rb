@@ -77,22 +77,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_17_163116) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", limit: 30, null: false
-    t.string "description", limit: 1000
-    t.string "email", limit: 320, null: false
-    t.string "twitter"
+    t.string "name", null: false
+    t.string "description"
+    t.string "twitter_name", null: false
+    t.string "twitter_id", null: false
     t.string "avatar"
-    t.string "crypted_password"
-    t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_token_expires_at", precision: nil
-    t.datetime "reset_password_email_sent_at", precision: nil
-    t.integer "access_count_to_reset_password_page", default: 0
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
-    t.index ["twitter"], name: "index_users_on_twitter", unique: true
+    t.index ["twitter_id"], name: "index_users_on_twitter_id", unique: true
   end
 
   create_table "web_pages", force: :cascade do |t|

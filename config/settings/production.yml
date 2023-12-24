@@ -1,0 +1,2 @@
+sorcery:
+  callback_url: https://ws-reviews-05f31df7cb82.herokuapp.com/oauth/twitter/callback?provider=twitter

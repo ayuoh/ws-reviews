@@ -69,6 +69,6 @@ end
 
 gem "tailwindcss-rails", "~> 2.0"
 
-gem 'figaro'
-
 gem 'sorcery'
+gem 'figaro'
+gem 'config'
