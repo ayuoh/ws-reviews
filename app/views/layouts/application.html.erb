@@ -18,10 +18,12 @@
       <% else %>
         <%= render 'shared/before_login_header' %>
       <% end %>
-      <%= render 'shared/flash_message' %>
-      <main class="md:container md:mx-auto md:my-16 md:px-5">
-        <%= yield %>
-      </main>
+      <div class="md:container md:mx-auto mt-16 md:mt-20 md:mb-16 md:px-5 pt-1">
+        <%= render 'shared/flash_message' %>
+        <main>
+          <%= yield %>
+        </main>
+      </div>
       <%= render 'shared/footer' %>
 
       <%= javascript_include_tag 'application' %>
