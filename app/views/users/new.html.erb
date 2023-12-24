@@ -1,0 +1,29 @@
+<div class="w-full max-w-lg mx-auto">
+  <%= form_with model: @user, method: :post, local: true, class: 'border border-gray-300 rounded px-8 pt-6 pb-8 mb-4' do |f| %>
+    <div class="mb-4">
+      <a href="#" class="text-[rgb(166,217,226)] hover:text-[rgb(115,207,223)] transition-colors">利用規約</a>および<a href="#" class="text-[rgb(166,217,226)] hover:text-[rgb(115,207,223)] transition-colors">プライバシーポリシー</a>に同意した上で、以下の「登録」ボタンを押してください。
+    </div>
+    <div class="mb-4">
+      <%= f.label :name, class: 'block text-sm mb-2' %>
+      <%= f.text_field :name, placeholder: 'ユーザー名', class: 'shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline focus:ring-[rgb(201,232,248)] focus:border-[rgb(201,232,248)] placeholder-gray-300' %>
+    </div>
+    <div class="mb-4">
+      <%= f.label :email, class: 'block text-sm mb-2' %>
+      <%= f.text_field :email, placeholder: 'メールアドレス', class: 'shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline focus:ring-[rgb(201,232,248)] focus:border-[rgb(201,232,248)] placeholder-gray-300' %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password, class: 'block text-sm mb-2' %>
+      <%= f.password_field :password, placeholder: 'パスワード', class: 'shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline focus:ring-[rgb(201,232,248)] focus:border-[rgb(201,232,248)] placeholder-gray-300' %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password_confirmation, class: 'block text-sm mb-2' %>
+      <%= f.password_field :password_confirmation, placeholder: 'パスワード（確認用）', class: 'shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline focus:ring-[rgb(201,232,248)] focus:border-[rgb(201,232,248)] placeholder-gray-300' %>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <%= f.submit '登録', class: 'bg-[rgb(166,217,226)] hover:bg-[rgb(115,207,223)] transition-colors text-white w-full py-2 px-4 mt-2 rounded focus:outline-none focus:shadow-outline' %>
+    </div>
+  <% end %>
+</div>

@@ -1,13 +1,11 @@
 class ReviewsController < ApplicationController
-  def index
-  end
+  skip_before_action :require_login, only: %i[index show]
 
-  def show
-  end
+  def index; end
 
-  def new
-  end
+  def show; end
 
-  def edit
-  end
+  def new; end
+
+  def edit; end
 end
