@@ -72,3 +72,5 @@ gem "tailwindcss-rails", "~> 2.0"
 gem 'sorcery'
 gem 'figaro'
 gem 'config'
+
+gem 'rails-i18n', '~> 7.0.0'
