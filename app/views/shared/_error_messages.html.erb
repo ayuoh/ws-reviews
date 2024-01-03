@@ -1,8 +1,12 @@
 <% if object.errors.present? %>
-  <div class="alert alert-danger">
-    <ul class="mb-0">
+  <div class="mb-8">
+    <ul class="mb-0 text-[rgb(239,123,81)] font-semibold">
       <% object.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <% if message == 'URLを入力してください' %>
+          <li>URLが正しくありません</li>
+        <% else %>
+          <li><%= message %></li>
+        <% end %>
       <% end %>
     </ul>
   </div>

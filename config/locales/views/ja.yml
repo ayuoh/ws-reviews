@@ -1,0 +1,13 @@
+ja:
+  default:
+    form:
+      required: '*'
+      more_information?: 'もっと情報を追加しますか？'
+      error:
+        url: 'このURLは有効ではありません。'
+  reviews:
+    new:
+      title: 'レビュー作成'
+      new_review: 'レビューを投稿する'
+      caution: '*は必須項目です。'
+      submit: '投稿する'
