@@ -1,7 +1,9 @@
 class ReviewsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
-  def index; end
+  def index
+    @reviews = Review.all.order(created_at: :desc).includes(:user, :tags, :web_page)
+  end
 
   def show; end
 

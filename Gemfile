@@ -54,6 +54,7 @@ gem 'figaro'
 
 # UI/UX
 gem 'rails-i18n', '~> 7.0.0'
+gem 'active_decorator'
 
 # Model
 gem 'exnum'

@@ -1,5 +1,5 @@
 <div>
-  <%= render 'reviews' %>
+  <%= render @reviews %>
   <% unless logged_in? %>
     <%= render 'user_sessions/new' %>
   <% end %>
