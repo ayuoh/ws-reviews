@@ -5,9 +5,15 @@ ja:
       more_information?: 'もっと情報を追加しますか？'
       error:
         url: 'このURLは有効ではありません。'
+    delete_message: '削除してよろしいですか？'
   reviews:
     new:
       title: 'レビュー作成'
       new_review: 'レビューを投稿する'
       caution: '*は必須項目です。'
       submit: '投稿する'
+    edit:
+      title: 'レビュー編集'
+      edit_review: 'レビューを編集する'
+      caution: '*は必須項目です。'
+      submit: '変更する'

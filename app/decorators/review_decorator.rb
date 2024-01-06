@@ -10,4 +10,10 @@ module ReviewDecorator
 
     "#{recruitment_start_date.strftime('%Y/%m/%d')}〜#{recruitment_last_date.strftime('%Y/%m/%d')}"
   end
+
+  def format_fee
+    return if fee.blank?
+
+    "#{number_to_currency(fee, unit: '')}#{t('currency.unit')}"
+  end
 end
