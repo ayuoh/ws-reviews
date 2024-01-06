@@ -5,7 +5,9 @@ class ReviewsController < ApplicationController
     @reviews = Review.all.order(created_at: :desc).includes(:user, :tags, :web_page)
   end
 
-  def show; end
+  def show
+    @review = Review.find(params[:id])
+  end
 
   def new
     @review = Review.new
@@ -43,7 +45,7 @@ class ReviewsController < ApplicationController
   end
 
   def tag_params
-    tags = params.require(:review)[:tag_names].split(' ')
+    tags = params.require(:review)[:tag_names].split(',')
     tags.map!(&:strip)
   end
 end
