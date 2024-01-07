@@ -1,5 +1,7 @@
 ja:
   default:
+    message:
+      require_login: 'ログインが必要な操作です。'
     form:
       required: '*'
       more_information?: 'もっと情報を追加しますか？'

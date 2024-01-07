@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     @review.set_default_title(url_param) if @review.title.blank?
 
     if @review.save && @review.save_tag(tag_params)
-      redirect_to reviews_path, success: '投稿しました。'
+      redirect_to root_path, success: '投稿しました。'
     else
       flash.now[:danger] = '投稿できませんでした。'
       @url = url_param
@@ -61,7 +61,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy!
-    redirect_to reviews_url, success: '削除しました。'
+    redirect_to root_url, success: '削除しました。'
   end
 
   private
