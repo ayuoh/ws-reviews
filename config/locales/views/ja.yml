@@ -1,0 +1,31 @@
+ja:
+  default:
+    message:
+      require_login: 'ログインが必要な操作です。'
+    form:
+      required: '*'
+      more_information?: 'もっと情報を追加しますか？'
+      title_caution: '（200文字以内）'
+      content_caution: '（1000文字以内）'
+      url_placeholder: 'レビュー/おすすめしたいWSのURLを入力してください'
+      content_placeholder: 'WSを受けた感想やおすすめしたい理由を入力してください'
+      tag_placeholder: ',で区切って入力してください'
+      fee_placeholder: '数字で入力してください'
+      error:
+        url: 'このURLは有効ではありません。'
+    delete_message: '削除してよろしいですか？'
+  views:
+    pagination:
+      first: '最新'
+      last: '最古'
+  reviews:
+    new:
+      title: 'レビュー作成'
+      new_review: 'レビューを投稿する'
+      caution: '*は必須項目です。'
+      submit: '投稿する'
+    edit:
+      title: 'レビュー編集'
+      edit_review: 'レビューを編集する'
+      caution: '*は必須項目です。'
+      submit: '変更する'
