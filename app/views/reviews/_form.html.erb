@@ -3,7 +3,9 @@
   <div class="grid gap-4">
     <!-- タイトル -->
     <div class="mb-4">
-      <%= f.label :title, class: 'block mb-2 text-sm font-medium' %>
+      <div class="flex gap-1">
+        <%= f.label :title, class: 'block mb-2 text-sm font-medium' %><span class="inline-block text-sm"><%= t('default.form.title_caution') %></span>
+      </div>
       <%= f.text_field :title, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
     </div>
 
@@ -13,7 +15,7 @@
           <%= f.label :url, class: 'block mb-2 text-sm font-medium uppercase' %>
           <span class="inline-block text-sm rounded-lg text-[rgb(239,123,81)]"><%= t('default.form.required') %></span>
       </div>
-      <%= f.url_field :url, required: true, value: @url, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
+      <%= f.url_field :url, required: true, value: @url, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5', placeholder: t('default.form.url_placeholder') %>
     </div>
 
     <!-- 実施期間-->
@@ -37,15 +39,15 @@
     <div class="mb-4">
       <div class="flex gap-1">
           <%= f.label :content, class: 'block mb-2 text-sm font-medium' %>
-          <span class="inline-block text-sm rounded-lg text-[rgb(239,123,81)]"><%= t('default.form.required') %></span>
+          <span class="inline-block text-sm rounded-lg text-[rgb(239,123,81)]"><%= t('default.form.required') %></span><span class="inline-block text-sm"><%= t('default.form.content_caution') %></span>
       </div>
-      <%= f.text_area :content, required: true, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
+      <%= f.text_area :content, required: true, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5 h-40', placeholder: t('default.form.content_placeholder') %>
     </div>
 
     <!-- タグ -->
     <div class="mb-4">
       <%= f.label :tag_names, class: 'block mb-2 text-sm font-medium' %>
-      <%= f.text_field :tag_names, value: @tags, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
+      <%= f.text_field :tag_names, value: @tags, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5', placeholder: t('default.form.tag_placeholder') %>
     </div>
 
     <!-- アコーディオン -->
@@ -84,7 +86,7 @@
           <!-- 料金 -->
           <div class="mb-4">
             <%= f.label :fee, class: 'block mb-2 text-sm font-medium' %>
-            <%= f.text_field :fee, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
+            <%= f.text_field :fee, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5', placeholder: t('default.form.fee_placeholder') %>
           </div>
 
           <!-- 対象 -->

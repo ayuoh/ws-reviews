@@ -3,6 +3,12 @@ ja:
     form:
       required: '*'
       more_information?: 'もっと情報を追加しますか？'
+      title_caution: '（200文字以内）'
+      content_caution: '（1000文字以内）'
+      url_placeholder: 'レビュー/おすすめしたいWSのURLを入力してください'
+      content_placeholder: 'WSを受けた感想やおすすめしたい理由を入力してください'
+      tag_placeholder: ',で区切って入力してください'
+      fee_placeholder: '数字で入力してください'
       error:
         url: 'このURLは有効ではありません。'
     delete_message: '削除してよろしいですか？'
