@@ -6,6 +6,10 @@ ja:
       error:
         url: 'このURLは有効ではありません。'
     delete_message: '削除してよろしいですか？'
+  views:
+    pagination:
+      first: '最新'
+      last: '最古'
   reviews:
     new:
       title: 'レビュー作成'
