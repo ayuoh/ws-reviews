@@ -1,6 +1,9 @@
-<% if !logged_in? && params[:page].nil? %>
+<% if !logged_in? && params[:page].nil? && params[:commit].nil? %>
   <%= render 'layouts/introduction' %>
 <% end %>
+
+<div class="pt-6 pb-3 py-4 md:px-5 md:py-0 md:m-5 flex justify-center"><%= render 'reviews/search_form' %></div>
+
 <div>
   <%= render @reviews %>
 </div>

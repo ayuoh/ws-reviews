@@ -11,6 +11,7 @@ ja:
       content_placeholder: 'WSを受けた感想やおすすめしたい理由を入力してください'
       tag_placeholder: ',で区切って入力してください'
       fee_placeholder: '数字で入力してください'
+      search_placeholder: 'ワードで検索'
       error:
         url: 'このURLは有効ではありません。'
     delete_message: '削除してよろしいですか？'

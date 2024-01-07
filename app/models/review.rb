@@ -58,4 +58,13 @@ class Review < ApplicationRecord
   def self.prefectures
     @@prefectures
   end
+
+  # ransack
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[title content prefecture target]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[taggings tags]
+  end
 end
