@@ -1,3 +1,6 @@
+<% unless logged_in? %>
+  <%= render 'layouts/introduction' %>
+<% end %>
 <div>
   <%= render @reviews %>
 </div>
