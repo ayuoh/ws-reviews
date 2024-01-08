@@ -65,6 +65,16 @@ class ReviewsController < ApplicationController
     redirect_to root_url, success: '削除しました。'
   end
 
+  def my_reviews
+    @q = current_user.reviews.ransack(params[:q])
+    @reviews = @q.result(distinct: true).includes(:user).order(created_at: :desc).page params[:page]
+  end
+
+  def favorites
+    @q = current_user.favorite_reviews.ransack(params[:q])
+    @reviews = @q.result(distinct: true).includes(:user).order(created_at: :desc).page params[:page]
+  end
+
   private
 
   def review_params

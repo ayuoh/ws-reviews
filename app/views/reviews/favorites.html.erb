@@ -1,0 +1,8 @@
+<% if @reviews.present? %>
+  <div>
+    <%= render @reviews %>
+  </div>
+<% else %>
+  <div class="text-center pt-10 pb-4 md:pb-0"><%= t('default.message.favorites') %></div>
+<% end %>
+<div class="text-center my-4 md:my-0"><%= paginate @reviews %></div>

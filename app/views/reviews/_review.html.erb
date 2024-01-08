@@ -1,4 +1,4 @@
-<div class="flex justify-around md:shadow md:rounded-lg px-3 py-4 md:p-5 md:m-10 border-b last:border-b-0 border-b-[rgb(245, 240, 230)]">
+<div class="flex justify-around md:shadow md:rounded-lg px-3 pt-4 pb-3 md:px-5 md:pt-5 md:pb-4 md:m-10 border-b last:border-b-0 border-b-[rgb(245, 240, 230)]">
     <!-- icon -->
     <%= link_to "https://twitter.com/#{review.user.twitter_name}", target: :_blank, rel: "noopener noreferrer" do %>
       <div class="basis-12 md:basis-18 mr-1 md:mr-2 text-xs">
@@ -23,7 +23,7 @@
         </div>
         <!-- タグ -->
         <% if review.tags.present? %>
-          <div class="mt-1 mb-2">
+          <div class="mt-1 mb-2 flex flex-wrap gap-y-[0.2rem] gap-x-1">
             <% review.tags.each do |tag| %>
               <span class="inline-block text-sm rounded py-[1.5px] px-2 bg-[rgb(166,217,226)] text-white"><%= tag.name %></span>
             <% end %>
@@ -46,5 +46,12 @@
           </div>
         </div>
       <% end %>
+
+      <!-- ボタン -->
+      <div class="mt-2 mr-[2px] flex justify-end">
+        <% if logged_in? && !current_user.own?(review) %>
+          <%= render 'reviews/favorite_button', review: review %>
+        <% end %>
+      </div>
     </div>
   </div>

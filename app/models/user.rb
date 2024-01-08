@@ -5,7 +5,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :authentications
 
   has_many :reviews, dependent: :destroy
-  has_many :favorite, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :favorite_reviews, through: :favorites, source: :review
 
   validates :name, presence: true, length: { maximum: 50 }

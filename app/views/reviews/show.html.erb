@@ -13,8 +13,12 @@
     </div>
     <% end %>
 
-    <% if @review.user = current_user %>
-      <%= render 'reviews/crud_buttons' %>
+    <% if logged_in? %>
+      <% if current_user.own?(@review) %>
+        <%= render 'reviews/crud_buttons', review: @review %>
+      <% else %>
+        <%= render 'reviews/favorite_button', review: @review %>
+      <% end %>
     <% end %>
   </div>
 
@@ -33,9 +37,9 @@
     </div>
 
     <!-- タグ -->
-    <div class="mt-2 mb-6">
+    <div class="mt-2 mb-6 flex flex-wrap gap-y-[0.2rem] gap-x-[0.3rem]">
       <% @review.tags.each do |tag| %>
-        <span class="inline-block mr-1 text-sm rounded py-[2px] px-2 bg-[rgb(166,217,226)] text-white"><%= tag.name %></span>
+        <span class="inline-block text-sm rounded py-[2px] px-2 bg-[rgb(166,217,226)] text-white"><%= tag.name %></span>
       <% end %>
     </div>
 
