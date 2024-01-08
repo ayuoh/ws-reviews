@@ -1,0 +1,5 @@
+<% @tags.each do |tag| %>
+  <li class="w-[15rem] md:w-[22rem] flex items-center gap-x-3.5 ml-1 py-2 px-3 rounded-lg text-sm bg-white hover:bg-[rgba(201,232,248,.3)] focus:ring-2 focus:ring-[#c9e8f8]" role="option" data-autocomplete-value="<%= tag.id %>" data-autocomplete-label="<%= tag.name %>">
+    <%= tag.name %>
+  </li>
+<% end %>

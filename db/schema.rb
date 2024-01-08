@@ -47,9 +47,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_17_163116) do
     t.string "title", limit: 200, null: false
     t.string "content", limit: 1000, null: false
     t.datetime "implementation_start_date", null: false
-    t.datetime "implementation_lase_date", null: false
+    t.datetime "implementation_last_date", null: false
     t.datetime "recruitment_start_date"
-    t.datetime "recruitment_lase_date"
+    t.datetime "recruitment_last_date"
     t.string "prefecture", limit: 5
     t.integer "fee"
     t.integer "target", default: 0
