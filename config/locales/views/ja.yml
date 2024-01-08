@@ -39,3 +39,5 @@ ja:
       edit_review: 'レビューを編集する'
       caution: '*は必須項目です。'
       submit: '変更する'
+    recommended_review:
+      recommend: 'あなたにおすすめのレビュー'

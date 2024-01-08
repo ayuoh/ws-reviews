@@ -1,5 +1,8 @@
 <% if @reviews.present? %>
   <div>
+    <% if @recommended_review.present? %>
+      <%= render 'reviews/recommended_review', review: @recommended_review %>
+    <% end %>
     <%= render @reviews %>
   </div>
 <% else %>
