@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :reviews do
     get 'favorites', on: :collection
+    get 'own', on: :member, to: 'reviews#own_reviews'
   end
   resources :favorites, only: %i[create destroy]
   get 'my_reviews', to: 'reviews#my_reviews'

@@ -1,6 +1,6 @@
 <div class="flex justify-around md:shadow md:rounded-lg px-3 pt-4 pb-3 md:px-5 md:pt-5 md:pb-4 md:m-10 border-b last:border-b-0 border-b-[rgb(245, 240, 230)]">
     <!-- icon -->
-    <%= link_to "https://twitter.com/#{review.user.twitter_name}", target: :_blank, rel: "noopener noreferrer" do %>
+    <%= link_to own_review_path(review) do %>
       <div class="basis-12 md:basis-18 mr-1 md:mr-2 text-xs">
         <%= image_tag review.user.avatar, class: 'rounded-[50%] max-w-full min-w-10 w-10' %>
       </div>

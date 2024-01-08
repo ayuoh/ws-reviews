@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show own_reviews]
   before_action :set_review, only: %i[edit update destroy]
 
   def index
@@ -73,6 +73,11 @@ class ReviewsController < ApplicationController
   def favorites
     @q = current_user.favorite_reviews.ransack(params[:q])
     @reviews = @q.result(distinct: true).includes(:user).order(created_at: :desc).page params[:page]
+  end
+
+  def own_reviews
+    @reviews = Review.joins(:user).where(user: { id: Review.find(params[:id]).user_id }).order(created_at: :desc).page params[:page]
+    render :my_reviews
   end
 
   private
