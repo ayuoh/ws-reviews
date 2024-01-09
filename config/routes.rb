@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/oauth/:provider/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#oauth", :as => :auth_at_provider
 
-  resources :users
   resources :reviews
+
+  get 'tags/search', to: 'tags#search'
 end
