@@ -40,9 +40,34 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+gem "tailwindcss-rails", "~> 2.0"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+# Authentication
+gem 'sorcery'
+
+# Configuration
+gem 'config'
+gem 'figaro'
+
+# UI/UX
+gem 'rails-i18n', '~> 7.0.0'
+gem 'active_decorator'
+
+# Model
+gem 'exnum'
+
+# URL
+gem 'httparty'
+gem 'addressable'
+
+# ogp
+gem "opengraph_parser"
+
+# pagination
+gem 'kaminari'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -66,9 +91,3 @@ group :development do
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
 end
-
-gem "tailwindcss-rails", "~> 2.0"
-
-gem 'sorcery'
-gem 'figaro'
-gem 'config'

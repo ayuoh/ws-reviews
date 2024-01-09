@@ -1,6 +1,7 @@
+<% if !logged_in? && params[:page].nil? %>
+  <%= render 'layouts/introduction' %>
+<% end %>
 <div>
-  <%= render 'reviews' %>
-  <% unless logged_in? %>
-    <%= render 'user_sessions/new' %>
-  <% end %>
+  <%= render @reviews %>
 </div>
+<div class="text-center my-4 md:my-0"><%= paginate @reviews %></div>

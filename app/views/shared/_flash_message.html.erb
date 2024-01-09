@@ -1,7 +1,7 @@
 <% flash.each do |message_type, message| %>
   <div class="my-4 flex justify-center">
     <% if message_type == 'danger' %>
-      <%= content_tag(:div, message, class: "p-4 inline-block text-sm text-center text-red-800 rounded-lg bg-red-50", role: 'alert') %>
+      <%= content_tag(:div, message, class: "p-4 inline-block text-sm text-center text-[rgb(239,123,81)] rounded-lg bg-[rgba(239,123,81,.15)]", role: 'alert') %>
     <% elsif message_type == 'success' %>
       <%= content_tag(:div, message, class: "p-4 inline-block text-sm text-center text-green-800 rounded-lg bg-green-50", role: 'alert') %>
     <% else %>
