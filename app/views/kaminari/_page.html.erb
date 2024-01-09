@@ -7,6 +7,10 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="border border-gray-300 text-gray-500<%= ' rounded-s-lg border-r-0' if page.first? %><%= ' rounded-e-lg border-l-0' if page.last? %><%= ' text-gray-700 bg-[rgba(166,217,226,.2)] px-3 h-8 flex items-center justify-center' if page.current? %><%= ' bg-white hover:bg-gray-100 hover:text-gray-700' unless page.current? %>" <% 'aria-current="page"' if page.current? %>>
+<span class="border-y border-l border-gray-300 text-gray-500
+<%= ' rounded-s-lg' if page.first? %>
+<%= ' rounded-e-lg border-l-0 border-r' if page.last? %>
+<%= ' text-gray-700 bg-gray-100 px-3 h-8 flex items-center justify-center' if page.current? %>
+<%= ' bg-white hover:bg-[rgba(166,217,226,.2)] hover:text-gray-700' unless page.current? %>" <% 'aria-current="page"' if page.current? %>>
   <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel, class: 'flex items-center justify-center px-3 h-full'} %>
 </span>

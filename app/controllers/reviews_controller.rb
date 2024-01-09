@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show own_reviews]
   before_action :set_review, only: %i[edit update destroy]
 
   def index
@@ -17,10 +17,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.new(review_params)
-
-    organizer = Organizer.find_or_save_organizer(url_param)
-    web_page = organizer.web_pages.find_or_create_by(url: url_param)
-    @review.web_page_id = web_page.id
+    set_organizer_and_webpage
 
     @review.set_default_title(url_param) if @review.title.blank?
 
@@ -41,9 +38,7 @@ class ReviewsController < ApplicationController
 
   def update
     update_params = review_params
-    organizer = Organizer.find_or_save_organizer(url_param)
-    web_page = organizer.web_pages.find_or_create_by(url: url_param)
-    @review.web_page_id = web_page.id
+    set_organizer_and_webpage
 
     if @review.title.blank?
       @review.set_default_title(url_param)
@@ -65,6 +60,23 @@ class ReviewsController < ApplicationController
     redirect_to root_url, success: '削除しました。'
   end
 
+  def my_reviews
+    @q = current_user.reviews.ransack(params[:q])
+    @reviews = @q.result(distinct: true).includes(:user).order(created_at: :desc).page params[:page]
+  end
+
+  def favorites
+    @q = current_user.favorite_reviews.ransack(params[:q])
+    @reviews = @q.result(distinct: true).includes(:user).order(created_at: :desc).page params[:page]
+
+    recommended_review
+  end
+
+  def own_reviews
+    @reviews = Review.joins(:user).where(user: { id: Review.find(params[:id]).user_id }).order(created_at: :desc).page params[:page]
+    render :my_reviews
+  end
+
   private
 
   def review_params
@@ -82,5 +94,36 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = current_user.reviews.find(params[:id])
+  end
+
+  def set_organizer_and_webpage
+    organizer = Organizer.find_or_save_organizer(url_param)
+    web_page = organizer.web_pages.find_or_create_by(url: url_param)
+    @review.web_page_id = web_page.id
+  end
+
+  def recommended_review
+    favorite = Favorite.where(user_id: current_user.id).order(created_at: :desc).first
+    return unless favorite.present?
+
+    # 最近お気に入りにタグがあるか確認
+    fav_taggnings = Tagging.where(review_id: favorite.review_id)
+    return unless fav_taggnings.present?
+
+    # 最近お気に入りにした投稿のタグをとってくる
+    fav_tags = []
+    fav_taggnings.each do |ft|
+      fav_tags << Tag.joins(taggings: :review).where(id: ft.tag_id).distinct.to_a
+    end
+    return unless fav_tags.present?
+
+    # 検索したいtag_idを配列に格納する
+    fav_tag_ids = []
+    fav_tags.each { |t| fav_tag_ids << t[0] }
+
+    # おすすめしたいレビューを取得
+    pre_recommended_review = Review.joins(:taggings).where(taggings: { tag_id: fav_tag_ids }).where.not(reviews: { user_id: current_user.id })
+
+    @recommended_review = pre_recommended_review.where.not(id: favorite.review_id).order(created_at: :desc).first
   end
 end

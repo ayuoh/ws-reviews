@@ -2,6 +2,9 @@ ja:
   default:
     message:
       require_login: 'ログインが必要な操作です。'
+      no_reviews: '現在、投稿はありません。'
+      my_reviews: 'まだ投稿していません。'
+      favorites: 'お気に入りした投稿はありません。'
     form:
       required: '*'
       more_information?: 'もっと情報を追加しますか？'
@@ -16,6 +19,12 @@ ja:
         url: 'このURLは有効ではありません。'
     delete_message: '削除してよろしいですか？'
   views:
+    header:
+      login: 'ログイン'
+      logout: 'ログアウト'
+      index: 'みんなの投稿'
+      posted: '自分の投稿'
+      favorites: 'お気に入り'
     pagination:
       first: '最新'
       last: '最古'
@@ -30,3 +39,5 @@ ja:
       edit_review: 'レビューを編集する'
       caution: '*は必須項目です。'
       submit: '変更する'
+    recommended_review:
+      recommend: 'あなたにおすすめのレビュー'
