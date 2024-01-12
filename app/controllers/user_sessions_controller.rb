@@ -8,15 +8,15 @@ class UserSessionsController < ApplicationController
   def create
     @user = login(params[:email], params[:password])
     if @user
-      redirect_to root_path, success: 'ログインしました。'
+      redirect_to root_path, success: t('flash.user_sessions.login')
     else
-      flash.now[:danger] = 'ログインできませんでした。'
+      flash.now[:danger] = t('flash.user_sessions.cant_login')
       render :new
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, success: 'ログアウトしました。'
+    redirect_to root_path, success: t('flash.user_sessions.logout')
   end
 end

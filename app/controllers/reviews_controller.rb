@@ -22,9 +22,9 @@ class ReviewsController < ApplicationController
     @review.set_default_title(url_param) if @review.title.blank?
 
     if @review.save && @review.save_tag(tag_params)
-      redirect_to root_path, success: '投稿しました。'
+      redirect_to root_path, success: t('flash.reviews.success.create')
     else
-      flash.now[:danger] = '投稿できませんでした。'
+      flash.now[:danger] = t('flash.reviews.failed.create')
       @url = url_param
       @tags = params.require(:review)[:tag_names]
       render :new, status: :unprocessable_entity
@@ -46,9 +46,9 @@ class ReviewsController < ApplicationController
     end
 
     if @review.update(update_params) && @review.save_tag(tag_params)
-      redirect_to review_path(@review), success: '変更しました。'
+      redirect_to review_path(@review), success: t('flash.reviews.success.update')
     else
-      flash.now[:danger] = '変更できませんでした。'
+      flash.now[:danger] = t('flash.reviews.failed.update')
       @url = url_param
       @tags = params.require(:review)[:tag_names]
       render :edit, status: :unprocessable_entity
@@ -57,7 +57,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy!
-    redirect_to root_url, success: '削除しました。'
+    redirect_to root_url, success: t('flash.reviews.success.destroy'), status: :see_other
   end
 
   def my_reviews

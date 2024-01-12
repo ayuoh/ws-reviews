@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get "/oauth/:provider/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#oauth", :as => :auth_at_provider
 
+  delete 'delete', to: 'users#destroy', as: :user_delete
+  # resources :users, only: %i[destroy]
+
   resources :reviews do
     get 'favorites', on: :collection
     get 'own', on: :member, to: 'reviews#own_reviews'

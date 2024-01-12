@@ -6,7 +6,7 @@
             <!-- Modal header -->
             <div class="flex items-center justify-between px-2 md:px-3 border-b rounded-t">
                 <h3 class="text-xl p-2 pt-3">
-                    ログイン
+                    <%= t('user_sessions.login') %>
                 </h3>
                 <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="authentication-modal">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -19,11 +19,11 @@
             <div class="p-4 md:p-5 space-y-4">
                 <div class="text-base leading-relaxed">
                     <p class="mb-4 text-sm">
-                        <%= link_to '利用規約', '#', class: 'text-[rgb(115,207,223)]' %>および<%= link_to 'プライバシーポリシー', '#', class: 'text-[rgb(115,207,223)]' %>に同意した上で、ログインしてください。
+                        <%= link_to t('default.terms'), '#', class: 'text-[rgb(115,207,223)]' %><%= t('default.words.and') %><%= link_to t('default.privacy'), '#', class: 'text-[rgb(115,207,223)]' %><%= t('user_sessions.login_message') %>
                     </p>
                     <%= link_to auth_at_provider_path(provider: :twitter), class: 'text-sm sm:text-base flex items-center justify-center w-full rounded border-2 focus:outline-none focus:border-[rgb(166,217,226)] hover:border-[rgb(166,217,226)] transition', data: { modal: 'authentication-modal' } do %>
                         <%= image_tag 'xlogo.svg', class: 'p-2 mr-1' %>
-                        Xでログイン
+                        <%= t('user_sessions.x') %>
                     <% end %>
                 </div>
             </div>

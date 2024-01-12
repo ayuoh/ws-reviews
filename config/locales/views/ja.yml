@@ -1,5 +1,7 @@
 ja:
   default:
+    words:
+      and: 'および'
     message:
       require_login: 'ログインが必要な操作です。'
       no_reviews: '現在、投稿はありません。'
@@ -14,10 +16,33 @@ ja:
       content_placeholder: 'WSを受けた感想やおすすめしたい理由を入力してください'
       tag_placeholder: ',で区切って入力してください'
       fee_placeholder: '数字で入力してください'
+      search: '検索'
       search_placeholder: 'ワードで検索'
       error:
-        url: 'このURLは有効ではありません。'
-    delete_message: '削除してよろしいですか？'
+        url: 'URLが正しくありません'
+    alert:
+      delete_message: '削除してよろしいですか？'
+    terms: '利用規約'
+    privacy: 'プライバシーポリシー'
+  flash:
+    oauths:
+      login_first: 'ログインできました！'
+      login: 'ログインしました。'
+      cant_login: 'ログインできませんでした。'
+    reviews:
+      success:
+        create: '投稿しました。'
+        update: '変更しました。'
+        destroy: '削除しました。'
+      failed:
+        create: '投稿できませんでした。'
+        update: '変更できませんでした。'
+    user_sessions:
+      login: 'ログインしました。'
+      cant_login: 'ログインできませんでした。'
+      logout: 'ログアウトしました。'
+    users:
+      delete: '退会しました。'
   views:
     header:
       login: 'ログイン'
@@ -25,10 +50,14 @@ ja:
       index: 'みんなの投稿'
       posted: '自分の投稿'
       favorites: 'お気に入り'
+    footer:
+      delete: '退会のお手続き'
     pagination:
       first: '最新'
       last: '最古'
   reviews:
+    review: 'レビュー'
+    recommend: 'おすすめ'
     new:
       title: 'レビュー作成'
       new_review: 'レビューを投稿する'
@@ -41,3 +70,11 @@ ja:
       submit: '変更する'
     recommended_review:
       recommend: 'あなたにおすすめのレビュー'
+  user_sessions:
+    login: 'ログイン'
+    login_message: 'に同意した上で、ログインしてください。'
+    x: 'Xでログイン'
+  users:
+    delete: '退会'
+    delete_message: 'アカウントを削除すると、これまでのデータは全て削除され、復元できなくなります。この操作は取り消せません。本当にアカウントを削除してもよろしいですか？'
+    delete_button: 'アカウントを削除する'
