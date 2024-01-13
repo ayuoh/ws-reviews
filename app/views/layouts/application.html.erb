@@ -9,22 +9,27 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script src="https://kit.fontawesome.com/eecd6b9250.js" crossorigin="anonymous"></script>
   </head>
 
-  <body>
-    <div class="text-gray-700 font-sans text-[15px] md:text-base">
+  <body class="bg-[rgb(166,217,226)]">
+    <div class="text-gray-700 font-sans text-[15px] md:text-base bg-white">
       <% if logged_in? %>
         <%= render 'shared/header' %>
       <% else %>
         <%= render 'shared/before_login_header' %>
       <% end %>
-      <div class="md:container md:mx-auto mt-16 md:mt-20 md:mb-16 md:px-5 pt-1">
+      <div class="md:container md:mx-auto md:mb-16 md:px-5 pt-[4.25rem] md:pt-[5.25rem]">
         <%= render 'shared/flash_message' %>
         <main>
           <%= yield %>
         </main>
       </div>
-      <%= render 'shared/footer' %>
+      <% if logged_in? %>
+        <%= render 'shared/footer' %>
+      <% else %>
+        <%= render 'shared/before_login_footer' %>
+      <% end %>
 
       <%= javascript_include_tag 'application' %>
   </div>

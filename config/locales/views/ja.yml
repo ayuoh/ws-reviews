@@ -1,0 +1,80 @@
+ja:
+  default:
+    words:
+      and: 'および'
+    message:
+      require_login: 'ログインが必要な操作です。'
+      no_reviews: '現在、投稿はありません。'
+      my_reviews: 'まだ投稿していません。'
+      favorites: 'お気に入りした投稿はありません。'
+    form:
+      required: '*'
+      more_information?: 'もっと情報を追加しますか？'
+      title_caution: '（200文字以内）'
+      content_caution: '（1000文字以内）'
+      url_placeholder: 'レビュー/おすすめしたいWSのURLを入力してください'
+      content_placeholder: 'WSを受けた感想やおすすめしたい理由を入力してください'
+      tag_placeholder: ',で区切って入力してください'
+      fee_placeholder: '数字で入力してください'
+      search: '検索'
+      search_placeholder: 'ワードで検索'
+      error:
+        url: 'URLが正しくありません'
+    alert:
+      delete_message: '削除してよろしいですか？'
+    terms: '利用規約'
+    privacy: 'プライバシーポリシー'
+  flash:
+    oauths:
+      login_first: 'ログインできました！'
+      login: 'ログインしました。'
+      cant_login: 'ログインできませんでした。'
+    reviews:
+      success:
+        create: '投稿しました。'
+        update: '変更しました。'
+        destroy: '削除しました。'
+      failed:
+        create: '投稿できませんでした。'
+        update: '変更できませんでした。'
+    user_sessions:
+      login: 'ログインしました。'
+      cant_login: 'ログインできませんでした。'
+      logout: 'ログアウトしました。'
+    users:
+      delete: '退会しました。'
+  views:
+    header:
+      login: 'ログイン'
+      logout: 'ログアウト'
+      index: 'みんなの投稿'
+      posted: '自分の投稿'
+      favorites: 'お気に入り'
+    footer:
+      delete: '退会のお手続き'
+    pagination:
+      first: '最新'
+      last: '最古'
+  reviews:
+    review: 'レビュー'
+    recommend: 'おすすめ'
+    new:
+      title: 'レビュー作成'
+      new_review: 'レビューを投稿する'
+      caution: '*は必須項目です。'
+      submit: '投稿する'
+    edit:
+      title: 'レビュー編集'
+      edit_review: 'レビューを編集する'
+      caution: '*は必須項目です。'
+      submit: '変更する'
+    recommended_review:
+      recommend: 'あなたにおすすめのレビュー'
+  user_sessions:
+    login: 'ログイン'
+    login_message: 'に同意した上で、ログインしてください。'
+    x: 'Xでログイン'
+  users:
+    delete: '退会'
+    delete_message: 'アカウントを削除すると、これまでのデータは全て削除され、復元できなくなります。この操作は取り消せません。本当にアカウントを削除してもよろしいですか？'
+    delete_button: 'アカウントを削除する'

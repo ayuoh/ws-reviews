@@ -1,0 +1,15 @@
+<%= search_form_for @q, url: root_path do |f| %>
+  <div class="relative flex rounded-md items-center">
+    <div data-controller="autocomplete" data-autocomplete-url-value="/tags/search" role="combobox">
+      <%= f.search_field :title_or_content_or_tags_name_cont, data: { autocomplete_target: 'input' }, class: "mr-2 md:mr-3 pl-10 w-64 md:w-[23rem] h-10 rounded-3xl border-gray-300 shadow-sm focus:ring-[#c9e8f8] focus:border-[#c9e8f8] placeholder-gray-400", placeholder: t('default.form.search_placeholder') %>
+      <%= f.hidden_field :tags_name, data: { autocomplete_target: 'hidden' } %>
+      <ul class="list-group bg-white absolute w-full md:text-sm max-w-max z-40" data-autocomplete-target="results"></ul>
+      <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
+        <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </div>
+    </div>
+    <%= f.submit t('default.form.search'), class: "h-min mr-2 md:mr-3 px-2 md:px-4 py-1 md:py-2 shadow rounded-lg bg-[rgb(115,207,223)] hover:bg-[rgb(105,189,204)] transition-colors text-sm md:text-base text-white" %>
+  </div>
+<% end %>

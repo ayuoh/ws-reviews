@@ -1,4 +1,92 @@
-<div>
-  <h1 class="font-bold text-4xl">Reviews#show</h1>
-  <p>Find me in app/views/reviews/show.html.erb</p>
+<div class="px-3 pt-4 pb-8 md:pt-4 md:pb-5 md:m-10">
+  <div class="flex justify-between">
+    <!-- icon -->
+    <%= link_to "https://twitter.com/#{@review.user.twitter_name}", target: :_blank, rel: "noopener noreferrer" do %>
+    <div class="flex">
+      <div class="basis-10 md:basis-18 mr-2 md:mr-4 text-xs">
+        <%= image_tag @review.user.avatar, class: 'rounded-[50%] max-w-full min-w-10 w-10' %>
+      </div>
+      <div>
+        <%= @review.user.name %>
+        <div class="block text-xs md:text-sm text-gray-500">@<%= @review.user.twitter_name %></div>
+      </div>
+    </div>
+    <% end %>
+
+    <% if logged_in? %>
+      <% if current_user.own?(@review) %>
+        <%= render 'reviews/crud_buttons', review: @review %>
+      <% else %>
+        <%= render 'reviews/favorite_button', review: @review %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <!-- reviewタイトル/コンテンツ -->
+    <div class="relative mt-2">
+      <div class="text-right text-xs absolute top-0 right-0">
+        <% if @review.implementation_last_date < Time.now %>
+          <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(166,217,226)] font-semibold text-white"><%= t('reviews.review') %></span>
+        <% else %>
+          <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(239,123,81)] font-semibold text-white"><%= t('reviews.recommend') %></span>
+        <% end %>
+      </div>
+      <h2 class="font-semibold text-xl md:text-2xl pt-7 md:pt-8"><%= @review.title %></h2>
+      <div class="mt-4 whitespace-pre-line text-lg"><%= @review.content %></div>
+    </div>
+
+    <!-- タグ -->
+    <div class="mt-2 mb-6 flex flex-wrap gap-y-[0.2rem] gap-x-[0.3rem]">
+      <% @review.tags.each do |tag| %>
+        <span class="inline-block text-sm rounded py-[2px] px-2 bg-[rgb(166,217,226)] text-white"><%= tag.name %></span>
+      <% end %>
+    </div>
+
+    <!-- review対象 -->
+    <% ogp = OpenGraph.new(@review.web_page.url) %>
+    <%= link_to @review.web_page.url, class: 'flex justify-center', target: :_blank, rel: "noopener noreferrer" do %>
+      <div class="border border-solid border-gray-200 rounded-2xl relative max-w-full lg:max-w-[80%] inline-block">
+        <div>
+          <%= image_tag ogp.images[0], class: 'block rounded-[0.9rem] max-w-full object-cover object-center min-h-[150px]' %>
+
+          <span class="px-2 pt-2 md:pt-1 pb-2 absolute bottom-0 bg-[rgba(0,0,0,.6)] rounded-b-[0.9rem] box-border w-[-webkit-fill-available]">
+            <span class="line-clamp-1 text-gray-300 text-xs md:text-base"><%= ogp.title %></span>
+            <span class="hidden text-[0.7em] md:line-clamp-1 leading-5 text-gray-400"><%= @review.web_page.url %></span>
+            <span class="hidden text-[0.7em] md:line-clamp-1 leading-5 text-gray-400"><%= ogp.description %></span>
+          </span>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- review詳細 -->
+    <div class="mt-8">
+      <ul>
+        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap pb-1 border-b border-dotted border-[rgb(166,217,226)]">
+          <div class="w-16"><%= Review.human_attribute_name(:implementation_start_date) %></div>
+          <div><%= @review.implementation_tarm %></div>
+        </li>
+
+        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
+          <div class="w-16"><%= Review.human_attribute_name(:prefecture) %></div>
+          <div><%= @review.prefecture %></div>
+        </li>
+
+        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
+          <div class="w-16"><%= Review.human_attribute_name(:recruitment_start_date) %></div>
+          <div><%= @review.recruitment_tarm %></div>
+        </li>
+
+        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
+          <div class="w-16"><%= Review.human_attribute_name(:fee) %></div>
+          <div><%= @review.format_fee %></div>
+        </li>
+
+        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
+          <div class="w-16"><%= Review.human_attribute_name(:target) %></div>
+          <div><%= @review.target_i18n %></div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

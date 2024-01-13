@@ -8,14 +8,26 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "reviews#index"
 
-  get 'login', to: 'user_sessions#new', as: :login
-  post 'login', to: 'user_sessions#create'
+  get 'terms', to: 'static_pages#terms', as: :terms
+  get 'privacy', to: 'static_pages#privacy', as: :privacy
+
+  # get 'login', to: 'user_sessions#new', as: :login
+  # post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy', as: :logout
 
   post "/oauth/:provider/callback" => "oauths#callback"
   get "/oauth/:provider/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#oauth", :as => :auth_at_provider
 
-  resources :users
-  resources :reviews
+  delete 'delete', to: 'users#destroy', as: :user_delete
+  # resources :users, only: %i[destroy]
+
+  resources :reviews do
+    get 'favorites', on: :collection
+    get 'own', on: :member, to: 'reviews#own_reviews'
+  end
+  resources :favorites, only: %i[create destroy]
+  get 'my_reviews', to: 'reviews#my_reviews'
+
+  get 'tags/search', to: 'tags#search'
 end

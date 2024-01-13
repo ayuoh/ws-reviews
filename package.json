@@ -5,7 +5,12 @@
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.0-beta.1",
     "esbuild": "^0.19.8",
-    "flowbite": "^2.2.1"
+    "flowbite": "^2.2.1",
+    "postcss": "^8.4.33",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^16.0.0",
+    "postcss-nested": "^6.0.1",
+    "stimulus-autocomplete": "^3.1.0"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"

@@ -1,4 +1,4 @@
-<header class="px-2 py-4 md:p-4 border border-gray-300 fixed w-full z-20 top-0 start-0 bg-[rgba(255,255,255,0.8)]">
+<header class="px-2 py-4 md:p-4 border-b border-gray-300 fixed w-full z-20 top-0 start-0 bg-[rgba(255,255,255,0.8)]">
   <div class="flex justify-between">
     <h1 class="flex items-center">
       <%= link_to root_path do %>
@@ -7,13 +7,10 @@
     </h1>
 
     <div class="flex">
-      <form>
-        <input type="text" class="mr-1 md:mr-3 w-40 md:w-64 h-8 md:h-10 rounded-3xl border-gray-300 shadow-sm focus:ring-[#c9e8f8] focus:border-[#c9e8f8]">
-      </form>
-
-      <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="px-2 md:px-4 py-1 md:py-2 rounded bg-[rgb(166,217,226)] hover:bg-[rgb(115,207,223)] transition-colors text-sm md:text-base text-white" type="button">
-        ログイン
+      <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="px-2 md:px-4 py-1 md:py-2 shadow rounded-lg bg-[rgb(115,207,223)] hover:bg-[rgb(105,189,204)] transition-colors text-sm md:text-base text-white" type="button">
+        <%= t('views.header.login') %>
       </button>
     </div>
   </div>
 </header>
+<%= render 'user_sessions/new' %>
