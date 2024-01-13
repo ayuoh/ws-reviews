@@ -19,7 +19,7 @@
             <div class="p-4 md:p-5 space-y-4">
                 <div class="text-base leading-relaxed">
                     <p class="mb-4 text-sm">
-                        <%= link_to t('default.terms'), '#', class: 'text-[rgb(115,207,223)]' %><%= t('default.words.and') %><%= link_to t('default.privacy'), '#', class: 'text-[rgb(115,207,223)]' %><%= t('user_sessions.login_message') %>
+                        <%= link_to t('default.terms'), terms_path, class: 'text-[rgb(115,207,223)]', target: :_blank, rel: "noopener noreferrer" %><%= t('default.words.and') %><%= link_to t('default.privacy'), privacy_path, class: 'text-[rgb(115,207,223)]', target: :_blank, rel: "noopener noreferrer" %><%= t('user_sessions.login_message') %>
                     </p>
                     <%= link_to auth_at_provider_path(provider: :twitter), class: 'text-sm sm:text-base flex items-center justify-center w-full rounded border-2 focus:outline-none focus:border-[rgb(166,217,226)] hover:border-[rgb(166,217,226)] transition', data: { modal: 'authentication-modal' } do %>
                         <%= image_tag 'xlogo.svg', class: 'p-2 mr-1' %>
