@@ -25,7 +25,11 @@
           <%= yield %>
         </main>
       </div>
-      <%= render 'shared/footer' %>
+      <% if logged_in? %>
+        <%= render 'shared/footer' %>
+      <% else %>
+        <%= render 'shared/before_login_footer' %>
+      <% end %>
 
       <%= javascript_include_tag 'application' %>
   </div>

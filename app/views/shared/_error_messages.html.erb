@@ -3,7 +3,7 @@
     <ul class="mb-0 text-[rgb(239,123,81)] font-semibold">
       <% object.errors.full_messages.each do |message| %>
         <% if message == 'URLを入力してください' %>
-          <li>URLが正しくありません</li>
+          <li><%= t('default.form.error.url') %></li>
         <% else %>
           <li><%= message %></li>
         <% end %>

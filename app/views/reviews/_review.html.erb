@@ -13,9 +13,9 @@
           <p class="text-right text-xs absolute top-0 right-0">
             <%= review.implementation_tarm %>
             <% if review.implementation_last_date < Time.now %>
-              <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(166,217,226)] font-semibold text-white">レビュー</span>
+              <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(166,217,226)] font-semibold text-white"><%= t('reviews.review') %></span>
             <% else %>
-              <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(239,123,81)] font-semibold text-white">おすすめ</span>
+              <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(239,123,81)] font-semibold text-white"><%= t('reviews.recommend') %></span>
             <% end %>
           </p>
           <h3 class="font-semibold pt-6"><%= review.title %></h3>
