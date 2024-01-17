@@ -71,3 +71,13 @@ https://www.figma.com/file/I75oR0txfRuq7D7yx4Bhnk/ws-revies?type=design&node-id=
 
 ## ER 図
 <img src="./assets/ws-reviews-ER_231020.webp">
+
+## 使用技術
+■ サーバサイド: Ruby on Rails 7系
+　　Ruby 3.1.4p223 Rails 7.1.2
+■ フロントエンド: HotWire
+■ CSSフレームワーク: Tailwind Flowbite(Tailwindのライブラリ)
+■ WebAPI: Twitter API
+■ インフラ:
+・ Webアプリケーションサーバ: Heroku
+・ データベースサーバ: PostgreSQL
