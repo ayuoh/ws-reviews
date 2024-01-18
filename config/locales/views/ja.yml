@@ -14,7 +14,7 @@ ja:
       content_caution: '（1000文字以内）'
       url_placeholder: 'レビュー/おすすめしたいWSのURLを入力してください'
       content_placeholder: 'WSを受けた感想やおすすめしたい理由を入力してください'
-      tag_placeholder: ',で区切って入力してください'
+      tag_placeholder: 'スペース区切りで入力してください'
       fee_placeholder: '数字で入力してください'
       search: '検索'
       search_placeholder: 'ワードで検索'

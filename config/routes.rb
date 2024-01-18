@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   get 'my_reviews', to: 'reviews#my_reviews'
 
   get 'tags/search', to: 'tags#search'
+  get 'tags/all_search', to: 'tags#all_search'
 end

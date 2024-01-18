@@ -45,9 +45,9 @@
     </div>
 
     <!-- タグ -->
-    <div class="mb-4">
+    <div class="mb-4" data-controller="tag">
       <%= f.label :tag_names, class: 'block mb-2 text-sm font-medium' %>
-      <%= f.text_field :tag_names, value: @tags, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5', placeholder: t('default.form.tag_placeholder') %>
+      <%= f.text_field :tag_names, value: @tags, id: 'tags-input', class: 'tagify bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5', placeholder: t('default.form.tag_placeholder'), data: { target: 'tagify.tagify'} %>
     </div>
 
     <!-- アコーディオン -->
