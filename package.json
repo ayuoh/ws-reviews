@@ -12,6 +12,7 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.0.0",
     "postcss-nested": "^6.0.1",
+    "prop-types": "^15.7.2",
     "stimulus-autocomplete": "^3.1.0"
   },
   "scripts": {
