@@ -1,3 +1,35 @@
+@import "@yaireo/tagify/dist/tagify.css";
+@import "@yaireo/tagify/src/tagify.scss";
+
+:root {
+  -app-blue: rgb(201 232 248);
+}
+
+.tagify--focus {
+  --tags-border-color: rgb(201 232 248);
+  border-width: 2px;
+}
+
+.tagify__dropdown {
+  border-radius: 0.5rem;
+  border-color: rgb(201 232 248);
+}
+
+.tagify__dropdown__wrapper {
+  border-color: rgb(201 232 248);
+  border-radius: 0.5rem;
+}
+
+.tagify__dropdown__item {
+  border-radius: 0.5rem;
+  color: #374151
+}
+
+.tagify__dropdown__item--active {
+  background: rgb(201 232 248);
+  color: #374151
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

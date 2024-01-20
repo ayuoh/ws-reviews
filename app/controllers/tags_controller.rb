@@ -7,4 +7,11 @@ class TagsController < ApplicationController
       format.js
     end
   end
+
+  def all_search
+    query = params[:query]
+    @tags = Tag.where('name LIKE ?', "%#{query}%")
+    @tags = @tags.pluck(:name)
+    render json: @tags
+  end
 end
