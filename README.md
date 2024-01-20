@@ -70,7 +70,7 @@
 https://www.figma.com/file/I75oR0txfRuq7D7yx4Bhnk/ws-revies?type=design&node-id=0-1&mode=design&t=pKQf7lOaVmcmGhEd-0
 
 ## ER 図
-<img src="./assets/ws-reviews-ER_231020.webp">
+<img src="./assets/ws-reviews-ER.webp">
 
 ## 使用技術
 ■ サーバサイド: Ruby on Rails 7系
