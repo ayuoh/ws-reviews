@@ -7,7 +7,7 @@ class WebPage < ApplicationRecord
 
   # validate
   def response_code200
-    response = HTTParty.get(url)
+    response = HTTP.get(url)
     return if response.code == 200
 
     errors.add(:url, 'urlが正しくありません。')
