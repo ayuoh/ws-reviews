@@ -24,10 +24,10 @@ Rails.application.routes.draw do
 
   resources :reviews do
     get 'favorites', on: :collection
-    get 'own', on: :member, to: 'reviews#own_reviews'
   end
+  get 'own/:twitter_name', to: 'reviews#own_reviews', as: :own
+
   resources :favorites, only: %i[create destroy]
-  get 'my_reviews', to: 'reviews#my_reviews'
 
   get 'tags/search', to: 'tags#search'
   get 'tags/all_search', to: 'tags#all_search'
