@@ -51,12 +51,12 @@
     <%= link_to @review.web_page.url, class: 'flex justify-center', target: :_blank, rel: "noopener noreferrer" do %>
       <div class="border border-solid border-gray-200 rounded-2xl relative max-w-full inline-block">
         <div>
-          <%= image_tag ogp.images[0], class: 'block rounded-[0.9rem] max-w-full object-cover object-center min-h-[150px]' %>
+          <%= image_tag ogp.images[0] || "ogp.png", class: 'block rounded-[0.9rem] max-w-full object-cover object-center min-h-[150px]' %>
 
           <span class="px-2 pt-2 md:pt-1 pb-2 absolute bottom-0 bg-[rgba(0,0,0,.6)] rounded-b-[0.9rem] box-border w-[-webkit-fill-available]">
-            <span class="line-clamp-1 text-gray-300 text-xs md:text-base"><%= ogp.title %></span>
+            <span class="line-clamp-1 text-gray-300 text-xs md:text-base"><%= ogp.title || "" %></span>
             <span class="hidden text-[0.7em] md:line-clamp-1 leading-5 text-gray-400"><%= @review.web_page.url %></span>
-            <span class="hidden text-[0.7em] md:line-clamp-1 leading-5 text-gray-400"><%= ogp.description %></span>
+            <span class="hidden text-[0.7em] md:line-clamp-1 leading-5 text-gray-400"><%= ogp.description || "" %></span>
           </span>
         </div>
       </div>

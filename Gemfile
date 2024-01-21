@@ -60,7 +60,7 @@ gem 'active_decorator'
 gem 'exnum'
 
 # URL
-gem 'httparty'
+gem 'http'
 gem 'addressable'
 
 # ogp

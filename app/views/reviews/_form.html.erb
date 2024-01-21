@@ -14,6 +14,7 @@
       <div class="flex gap-1">
           <%= f.label :url, class: 'block mb-2 text-sm font-medium uppercase' %>
           <span class="inline-block text-sm rounded-lg text-[rgb(239,123,81)]"><%= t('default.form.required') %></span>
+          <span class="ml-2 text-xs text-gray-500 mb-2 flex items-end">※Xの投稿URLなど一部使用できないURLがございます。ご了承ください。</span>
       </div>
       <%= f.url_field :url, required: true, value: @url, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5', placeholder: t('default.form.url_placeholder') %>
     </div>
