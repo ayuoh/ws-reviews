@@ -60,11 +60,6 @@ class ReviewsController < ApplicationController
     redirect_to root_url, success: t('flash.reviews.success.destroy'), status: :see_other
   end
 
-  def my_reviews
-    @q = current_user.reviews.ransack(params[:q])
-    @reviews = @q.result(distinct: true).includes(:user).order(created_at: :desc).page params[:page]
-  end
-
   def favorites
     @q = current_user.favorite_reviews.ransack(params[:q])
     @reviews = @q.result(distinct: true).includes(:user).order(created_at: :desc).page params[:page]
@@ -73,7 +68,7 @@ class ReviewsController < ApplicationController
   end
 
   def own_reviews
-    @reviews = Review.joins(:user).where(user: { id: Review.find(params[:id]).user_id }).order(created_at: :desc).page params[:page]
+    @reviews = Review.joins(:user).where(user: { twitter_name: params[:twitter_name] }).includes(:user, :tags, :web_page).order(created_at: :desc).page params[:page]
     render :my_reviews
   end
 

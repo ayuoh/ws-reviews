@@ -15,7 +15,10 @@
 
     <% if logged_in? %>
       <% if current_user.own?(@review) %>
-        <%= render 'reviews/crud_buttons', review: @review %>
+        <div class="flex items-end gap-4">
+          <%= render 'reviews/share_button', review: @review %>
+          <%= render 'reviews/crud_buttons', review: @review %>
+        </div>
       <% else %>
         <%= render 'reviews/favorite_button', review: @review %>
       <% end %>
@@ -24,7 +27,7 @@
 
   <div>
     <!-- reviewタイトル/コンテンツ -->
-    <div class="relative mt-2">
+    <div class="relative mt-4">
       <div class="text-right text-xs absolute top-0 right-0">
         <% if @review.implementation_last_date < Time.now %>
           <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(166,217,226)] font-semibold text-white"><%= t('reviews.review') %></span>
@@ -46,7 +49,7 @@
     <!-- review対象 -->
     <% ogp = OpenGraph.new(@review.web_page.url) %>
     <%= link_to @review.web_page.url, class: 'flex justify-center', target: :_blank, rel: "noopener noreferrer" do %>
-      <div class="border border-solid border-gray-200 rounded-2xl relative max-w-full lg:max-w-[80%] inline-block">
+      <div class="border border-solid border-gray-200 rounded-2xl relative max-w-full inline-block">
         <div>
           <%= image_tag ogp.images[0], class: 'block rounded-[0.9rem] max-w-full object-cover object-center min-h-[150px]' %>
 
