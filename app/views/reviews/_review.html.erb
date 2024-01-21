@@ -8,18 +8,25 @@
 
     <div class="flex-grow relative w-4/5">
       <!-- review内容 -->
+      <div class="text-right text-xs absolute top-0 right-0 flex items-center">
+        <% if review.implementation_last_date < Time.now %>
+          <span class="rounded mr-2 px-[5px] py-[4px] text-[0.75em] bg-[rgb(166,217,226)] font-semibold text-white"><%= t('reviews.review') %></span>
+        <% else %>
+          <span class="rounded mr-2 px-[5px] py-[4px] text-[0.75em] bg-[rgb(239,123,81)] font-semibold text-white"><%= t('reviews.recommend') %></span>
+        <% end %>
+        <!-- ボタン -->
+        <% if logged_in? %>
+          <% if current_user.own?(review) %>
+            <%= render 'reviews/share_button', review: review %>
+          <% else %>
+            <%= render 'reviews/favorite_button', review: review %>
+          <% end %>
+        <% end %>
+      </div>
       <%= link_to review_path(review) do %>
         <div class="hover:text-gray-950 rounded-lg">
-          <p class="text-right text-xs absolute top-0 right-0">
-            <%= review.implementation_tarm %>
-            <% if review.implementation_last_date < Time.now %>
-              <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(166,217,226)] font-semibold text-white"><%= t('reviews.review') %></span>
-            <% else %>
-              <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(239,123,81)] font-semibold text-white"><%= t('reviews.recommend') %></span>
-            <% end %>
-          </p>
-          <h3 class="font-semibold pt-6"><%= review.title %></h3>
-          <div class="mt-1 mb-1 whitespace-pre-line"><%= review.content %></div>
+          <h3 class="font-semibold pt-10"><%= review.title %></h3>
+          <div class="my-4 whitespace-pre-line line-clamp-5"><%= review.content %></div>
         </div>
         <!-- タグ -->
         <% if review.tags.present? %>
@@ -46,12 +53,5 @@
           </div>
         </div>
       <% end %>
-
-      <!-- ボタン -->
-      <div class="mt-2 mr-[2px] flex justify-end">
-        <% if logged_in? && !current_user.own?(review) %>
-          <%= render 'reviews/favorite_button', review: review %>
-        <% end %>
-      </div>
     </div>
   </div>
