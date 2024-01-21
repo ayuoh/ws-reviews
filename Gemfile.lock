@@ -186,6 +186,8 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    meta-tags (2.20.0)
+      actionpack (>= 6.0.0, < 7.2)
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
@@ -390,6 +392,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kaminari
+  meta-tags
   opengraph_parser
   pg (~> 1.1)
   pry-byebug

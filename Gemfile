@@ -66,6 +66,9 @@ gem 'addressable'
 # ogp
 gem "opengraph_parser"
 
+# SEO
+gem 'meta-tags'
+
 # pagination
 gem 'kaminari'
 
