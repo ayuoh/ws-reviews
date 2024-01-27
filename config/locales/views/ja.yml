@@ -22,6 +22,7 @@ ja:
         url: 'URLが正しくありません'
     alert:
       delete_message: '削除してよろしいですか？'
+    info: '開発者より'
     terms: '利用規約'
     privacy: 'プライバシーポリシー'
   flash:
