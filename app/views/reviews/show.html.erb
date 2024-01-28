@@ -35,7 +35,6 @@
           <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(239,123,81)] font-semibold text-white"><%= t('reviews.recommend') %></span>
         <% end %>
       </div>
-      <h2 class="font-semibold text-xl md:text-2xl pt-7 md:pt-8"><%= @review.title %></h2>
       <div class="mt-4 whitespace-pre-line text-lg"><%= @review.content %></div>
     </div>
 
@@ -73,11 +72,6 @@
         <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
           <div class="w-16"><%= Review.human_attribute_name(:prefecture) %></div>
           <div><%= @review.prefecture %></div>
-        </li>
-
-        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
-          <div class="w-16"><%= Review.human_attribute_name(:recruitment_start_date) %></div>
-          <div><%= @review.recruitment_tarm %></div>
         </li>
 
         <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">

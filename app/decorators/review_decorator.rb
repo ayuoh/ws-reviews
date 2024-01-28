@@ -5,10 +5,8 @@ module ReviewDecorator
     "#{implementation_start_date.strftime('%Y/%m/%d')}〜#{implementation_last_date.strftime('%Y/%m/%d')}"
   end
 
-  def recruitment_tarm
-    return if recruitment_start_date.blank?
-
-    "#{recruitment_start_date.strftime('%Y/%m/%d')}〜#{recruitment_last_date.strftime('%Y/%m/%d')}"
+  def format_created_at
+    "#{created_at.strftime('%Y/%m/%d')} 投稿"
   end
 
   def format_fee

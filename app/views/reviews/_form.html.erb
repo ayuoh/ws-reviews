@@ -1,12 +1,29 @@
 <%= form_with model: review, url: url, local: true do |f| %>
   <%= render partial: 'shared/error_messages', locals: { object: f.object } %>
   <div class="grid gap-4">
-    <!-- タイトル -->
+
+    <!-- 満足度 -->
+    <div class="mb-8">
+      <div class="flex gap-1">
+        <%= f.label :satisfaction, class: 'block mb-2 text-sm font-medium' %><span class="inline-block text-sm rounded-lg text-[rgb(239,123,81)]"><%= t('default.form.required') %></span>
+      </div>
+      <div class="range">
+        <%= f.range_field :satisfaction, class: 'range_field' %>
+        <span>低</span>
+        <span>やや低</span>
+        <span>普通</span>
+        <span>やや高</span>
+        <span>高</span>
+      </div>
+    </div>
+
+    <!-- 内容 -->
     <div class="mb-4">
       <div class="flex gap-1">
-        <%= f.label :title, class: 'block mb-2 text-sm font-medium' %><span class="inline-block text-sm"><%= t('default.form.title_caution') %></span>
+          <%= f.label :content, class: 'block mb-2 text-sm font-medium' %>
+          <span class="inline-block text-sm rounded-lg text-[rgb(239,123,81)]"><%= t('default.form.required') %></span><span class="inline-block text-sm"><%= t('default.form.content_caution') %></span>
       </div>
-      <%= f.text_field :title, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
+      <%= f.text_area :content, required: true, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5 h-40', placeholder: t('default.form.content_placeholder') %>
     </div>
 
     <!-- URL -->
@@ -36,13 +53,10 @@
       </div>
     </div>
 
-    <!-- 内容 -->
+    <!-- ジャンル -->
     <div class="mb-4">
-      <div class="flex gap-1">
-          <%= f.label :content, class: 'block mb-2 text-sm font-medium' %>
-          <span class="inline-block text-sm rounded-lg text-[rgb(239,123,81)]"><%= t('default.form.required') %></span><span class="inline-block text-sm"><%= t('default.form.content_caution') %></span>
-      </div>
-      <%= f.text_area :content, required: true, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5 h-40', placeholder: t('default.form.content_placeholder') %>
+      <%= f.label :genre, class: 'block mb-2 text-sm font-medium' %>
+      <%= f.select :genre, Review.genres, {}, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
     </div>
 
     <!-- タグ -->
@@ -68,20 +82,6 @@
           <div class="mb-4">
             <%= f.label :prefecture, class: 'block mb-2 text-sm font-medium' %>
             <%= f.select :prefecture, Review.prefectures, { include_blank: '' }, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
-          </div>
-
-          <!-- 応募期間 -->
-          <div>
-            <%= f.label :recruitment_start_date, class: 'block mb-2 text-sm font-medium' %>
-            <div class="flex items-center gap-2 mb-4">
-              <div class="w-2/5 md:w-1/3">
-                <%= f.date_field :recruitment_start_date, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
-              </div>
-              〜
-              <div class="w-2/5 md:w-1/3">
-                <%= f.date_field :recruitment_last_date, class: 'bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-[#c9e8f8] focus:border-[#c9e8f8] block w-full p-2.5' %>
-              </div>
-            </div>
           </div>
 
           <!-- 料金 -->

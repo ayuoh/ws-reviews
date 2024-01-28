@@ -6,14 +6,9 @@
       </div>
     <% end %>
 
-    <div class="flex-grow relative w-4/5">
+    <div class="flex-grow relative w-4/5 pl-2">
       <!-- review内容 -->
       <div class="text-right text-xs absolute top-0 right-0 flex items-center">
-        <% if review.implementation_last_date < Time.now %>
-          <span class="rounded mr-2 px-[5px] py-[4px] text-[0.75em] bg-[rgb(166,217,226)] font-semibold text-white"><%= t('reviews.review') %></span>
-        <% else %>
-          <span class="rounded mr-2 px-[5px] py-[4px] text-[0.75em] bg-[rgb(239,123,81)] font-semibold text-white"><%= t('reviews.recommend') %></span>
-        <% end %>
         <!-- ボタン -->
         <% if logged_in? %>
           <% if current_user.own?(review) %>
@@ -23,18 +18,25 @@
           <% end %>
         <% end %>
       </div>
-      <%= link_to review_path(review) do %>
-        <div class="hover:text-gray-950 rounded-lg">
-          <h3 class="font-semibold pt-10"><%= review.title %></h3>
-          <!-- タグ -->
-          <% if review.tags.present? %>
-            <div class="mt-1 mb-2 flex flex-wrap gap-y-[0.2rem] gap-x-1">
-              <% review.tags.each do |tag| %>
-                <span class="inline-block text-sm rounded py-[1.5px] px-2 bg-[rgb(166,217,226)] text-white hover:text-white"><%= tag.name %></span>
-              <% end %>
-            </div>
+      <!-- 満足度 -->
+      <div class="flex md:items-center gap-2 flex-col md:flex-row pt-1">
+        <div class="text-sm"><%= Review.human_attribute_name(:satisfaction) %></div>
+        <div class="w-[75%] md:w-[60%] relative">
+          <div class="w-full h-4 rounded-lg bg-gradient-to-r from-[rgb(166,217,226)] from-<%= review.satisfaction %> to-[rgb(226,242,244)] to-<%= review.satisfaction %> absolute top-[-8px]"></div>
+        </div>
+      </div>
+      <!-- ジャンル・タグ -->
+      <div class="pt-4 md:pt-2 mb-2 flex flex-wrap gap-y-[0.2rem] gap-x-1">
+        <span class="inline-block text-sm rounded py-[1.5px] px-2 bg-[rgb(239,123,81)] text-white"><%= review.genre %></span>
+        <% if review.tags.present? %>
+          <% review.tags.each do |tag| %>
+            <span class="inline-block text-sm rounded py-[1.5px] px-2 bg-[rgb(166,217,226)] text-white"><%= tag.name %></span>
           <% end %>
-          <div class="my-4 whitespace-pre-line line-clamp-5"><%= review.content %></div>
+        <% end %>
+      </div>
+      <%= link_to review_path(review) do %>
+        <div class="hover:text-gray-950 rounded-lg mt-1 mb-3">
+          <div class="whitespace-pre-line line-clamp-5"><%= review.content %></div>
         </div>
       <% end %>
 
@@ -53,5 +55,10 @@
           </div>
         </div>
       <% end %>
+
+      <!-- 投稿日 -->
+      <div class="text-[0.7rem] text-gray-500 text-right pr-1 mt-1">
+        <%= review.format_created_at %>
+      </div>
     </div>
   </div>
