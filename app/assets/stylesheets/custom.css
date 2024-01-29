@@ -1,3 +1,19 @@
+.card,
+.card-genre,
+.card-tags,
+.card-ogp {
+  position: relative;
+}
+
+.card-sentence a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .document-styles {
   margin-left: auto;
   margin-right: auto;
