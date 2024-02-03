@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_28_063332) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_03_112034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,12 +49,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_28_063332) do
     t.datetime "implementation_last_date", null: false
     t.string "prefecture", limit: 5
     t.integer "fee"
-    t.integer "target", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "tendency"
     t.integer "satisfaction", default: 50
-    t.string "genre"
+    t.integer "genre", default: 0
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["web_page_id"], name: "index_reviews_on_web_page_id"
   end
