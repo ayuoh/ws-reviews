@@ -1,3 +1,18 @@
+.new-icon {
+  width: 22.68px;
+  height: 25.92px;
+  transition: all 0.3s ease-out;
+}
+
+.new-icon:hover {
+  width: calc(22.68px * 1.15);
+  height: calc(25.92px * 1.15);
+}
+
+::-webkit-resizer {
+  display: none;
+}
+
 .card,
 .card-ogp,
 .link-on-card a {
@@ -121,7 +136,6 @@
 input[type="range"] {
   width: 100%;
   -webkit-appearance: none;
-  /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
   appearance: none;
   cursor: pointer;
   /* カーソルを分かりやすく */
@@ -138,7 +152,7 @@ input[type="range"] {
 /* WebKit向けのつまみ */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  /*  🚩デフォルトのつまみのスタイルを解除 */
+  /* デフォルトのつまみのスタイルを解除 */
   background: #F9FAFB;
   /* 背景色 */
   width: 20px;
@@ -313,4 +327,27 @@ input[type="range"]:focus::-webkit-slider-thumb {
 
 .to-100 {
   --tw-gradient-to-position: 100%;
+}
+
+.tagify {
+  --tags-border-color: rgb(229 231 235);
+}
+
+@media (max-width: 768px) {
+  .tagify {
+    --tags-border-color: transparent;
+    --tags-hover-border-color: transparent;
+    --tags-focus-border-color: transparent;
+  }
+
+  .tagify--focus {
+    --tags-border-color: transparent !important;
+  }
+
+  .tagify__input {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

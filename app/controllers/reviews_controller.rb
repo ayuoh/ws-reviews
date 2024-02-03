@@ -72,7 +72,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content, :implementation_start_date, :implementation_last_date, :satisfaction, :genre, :prefecture, :fee, :target)
+    params.require(:review).permit(:content, :implementation_start_date, :implementation_last_date, :satisfaction, :genre, :prefecture, :fee)
   end
 
   def url_param
