@@ -19,8 +19,13 @@ ja:
         genre: 'ジャンル'
     enum:
       review:
-        target:
-          everyone: 'みんな'
-          actor: '俳優'
-          director: '演出家'
+        genre:
+          straightplay: 'ストレート・プレイ'
+          reading: 'リーディング'
+          improvisation: 'インプロバイゼーション'
+          clown: 'クラウン'
+          musical: 'ミュージカル'
+          action: 'アクション'
+          theatergame: 'シアターゲーム'
+          movie: '映像'
           other: 'その他'

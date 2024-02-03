@@ -1,4 +1,4 @@
-<div class="px-3 pt-4 pb-8 md:pt-4 md:pb-5 md:m-10">
+<div class="px-4 pt-6 pb-4 md:pt-4 md:pb-5 md:m-10">
   <div class="flex justify-between">
     <!-- icon -->
     <%= link_to "https://twitter.com/#{@review.user.twitter_name}", target: :_blank, rel: "noopener noreferrer" do %>
@@ -25,30 +25,32 @@
     <% end %>
   </div>
 
-  <div>
-    <!-- reviewタイトル/コンテンツ -->
-    <div class="relative mt-4">
-      <div class="text-right text-xs absolute top-0 right-0">
-        <% if @review.implementation_last_date < Time.now %>
-          <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(166,217,226)] font-semibold text-white"><%= t('reviews.review') %></span>
-        <% else %>
-          <span class="rounded ml-1 px-[5px] py-[4px] text-[0.75em] bg-[rgb(239,123,81)] font-semibold text-white"><%= t('reviews.recommend') %></span>
-        <% end %>
-      </div>
-      <div class="mt-4 whitespace-pre-line text-lg"><%= @review.content %></div>
-    </div>
+  <div class="flex flex-wrap gap-2 items-center justify-between mt-6">
+    <!-- review詳細 -->
+    <div class="w-[52%] max-w-[52%] text-xs text-right">
+      <ul>
+        <li class="pb-1 border-b border-dotted border-[rgb(166,217,226)]">
+          <div><%= @review.format_created_at %></div>
+        </li>
 
-    <!-- タグ -->
-    <div class="mt-2 mb-6 flex flex-wrap gap-y-[0.2rem] gap-x-[0.3rem]">
-      <% @review.tags.each do |tag| %>
-        <span class="inline-block text-sm rounded py-[2px] px-2 bg-[rgb(166,217,226)] text-white"><%= tag.name %></span>
-      <% end %>
+        <li class="mt-3 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
+          <div><%= @review.implementation_tarm %></div>
+        </li>
+
+        <li class="mt-3 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
+          <div><%= @review.format_prefecture %></div>
+        </li>
+
+        <li class="mt-3 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
+          <div><%= @review.format_fee %></div>
+        </li>
+      </ul>
     </div>
 
     <!-- review対象 -->
     <% ogp = OpenGraph.new(@review.web_page.url) %>
-    <%= link_to @review.web_page.url, class: 'flex justify-center', target: :_blank, rel: "noopener noreferrer" do %>
-      <div class="border border-solid border-gray-200 rounded-2xl relative max-w-full inline-block">
+    <%= link_to @review.web_page.url, class: 'max-w-[45%]', target: :_blank, rel: "noopener noreferrer" do %>
+      <div class="border border-solid border-gray-200 rounded-2xl relative max-w-full">
         <div>
           <%= image_tag ogp.images[0] || "ogp.png", class: 'block rounded-[0.9rem] max-w-full object-cover object-center min-h-[150px]' %>
 
@@ -60,30 +62,36 @@
         </div>
       </div>
     <% end %>
+  </div>
 
-    <!-- review詳細 -->
-    <div class="mt-8">
-      <ul>
-        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap pb-1 border-b border-dotted border-[rgb(166,217,226)]">
-          <div class="w-16"><%= Review.human_attribute_name(:implementation_start_date) %></div>
-          <div><%= @review.implementation_tarm %></div>
-        </li>
+  <div class="mt-4">
+    <!-- 満足度 -->
+    <div class="flex items-center gap-2 flex-row mt-2 mb-1 pb-[8px]">
+      <div class="text-sm"><%= Review.human_attribute_name(:satisfaction) %></div>
+      <div class="w-[calc(100%-3.5rem)] md:w-[60%] relative">
+        <div class="w-[calc(100%-1px)] h-[calc(1rem-0.2px)] rounded-lg satisfaction absolute top-[-7.9px]"></div>
+        <div class="w-full h-4 rounded-lg bg-gradient-to-r from-[transparent] from-<%= @review.satisfaction %> to-gray-100 to-<%= @review.satisfaction %> absolute top-[-8px]"></div>
+      </div>
+    </div>
 
-        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
-          <div class="w-16"><%= Review.human_attribute_name(:prefecture) %></div>
-          <div><%= @review.prefecture %></div>
-        </li>
+    <!-- ジャンル・タグ -->
+    <div class="pt-2 flex flex-wrap gap-y-[0.2rem]">
+      <span class="block text-sm rounded py-[1.5px] px-2 bg-[rgb(239,123,81)] text-white"><%= @review.genre_i18n %></span>
+    </div>
+    <% if @review.tags.present? %>
+      <div class="pt-1 flex flex-wrap gap-y-[0.2rem] gap-x-1">
+        <% @review.tags.each do |tag| %>
+          <span class="inline-block text-sm rounded py-[1.5px] px-2 bg-[rgb(166,217,226)] text-white"><%= tag.name %></span>
+        <% end %>
+      </div>
+    <% end %>
 
-        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
-          <div class="w-16"><%= Review.human_attribute_name(:fee) %></div>
-          <div><%= @review.format_fee %></div>
-        </li>
-
-        <li class="flex gap-x-8 lg:gap-x-24 flex-wrap mt-4 pb-1 border-b border-dotted border-[rgb(166,217,226)]">
-          <div class="w-16"><%= Review.human_attribute_name(:target) %></div>
-          <div><%= @review.target_i18n %></div>
-        </li>
-      </ul>
+    <!-- reviewコンテンツ -->
+    <div class="relative mt-4">
+      <div class="text-right text-xs absolute top-0 right-0">
+      </div>
+      <div class="mt-4 whitespace-pre-line leading-[2.3rem]"><span class="pb-[3px] border-b border-dotted border-[rgb(166,217,226)]"><%= @review.content %></span></div>
     </div>
   </div>
+  <%= link_to '一覧に戻る', reviews_path, class: 'block w-[5em] mx-auto mt-4 text-xs text-[rgb(166,217,226)]' %>
 </div>

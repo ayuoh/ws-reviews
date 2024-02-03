@@ -1,8 +1,8 @@
 .card,
-.card-genre,
-.card-tags,
-.card-ogp {
+.card-ogp,
+.link-on-card a {
   position: relative;
+  z-index: 10;
 }
 
 .card-sentence a:before {
@@ -221,6 +221,10 @@ input[type="range"]:focus::-webkit-slider-thumb {
 
 .range span:nth-child(6) {
   right: 0;
+}
+
+.satisfaction {
+  background-image: linear-gradient(90deg, rgba(61, 200, 194, 1), rgba(206, 216, 0, 1) 30%, rgba(255, 174, 68, 1) 74%, rgba(234, 114, 0, 1));
 }
 
 .from-0 {
