@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "reviews#index"
 
+  get 'info', to: 'static_pages#info', as: :info
   get 'terms', to: 'static_pages#terms', as: :terms
   get 'privacy', to: 'static_pages#privacy', as: :privacy
 

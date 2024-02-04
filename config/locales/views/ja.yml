@@ -9,19 +9,18 @@ ja:
       favorites: 'お気に入りした投稿はありません。'
     form:
       required: '*'
-      more_information?: 'もっと情報を追加しますか？'
-      title_caution: '（200文字以内）'
       content_caution: '（1000文字以内）'
-      url_placeholder: 'レビュー/おすすめしたいWSのURLを入力してください'
-      content_placeholder: 'WSを受けた感想やおすすめしたい理由を入力してください'
-      tag_placeholder: '［Enter］キーで区切って入力してください'
-      fee_placeholder: '数字で入力してください'
+      url_placeholder: 'https://example.com'
+      content_placeholder: 'どんなWSだった？'
+      tag_placeholder: '［Enter］キーで区切って入力してね'
+      fee_placeholder: '数字で入力してね'
       search: '検索'
       search_placeholder: 'ワードで検索'
       error:
         url: 'URLが正しくありません'
     alert:
       delete_message: '削除してよろしいですか？'
+    info: '開発者より'
     terms: '利用規約'
     privacy: 'プライバシーポリシー'
   flash:
@@ -47,9 +46,8 @@ ja:
     header:
       login: 'ログイン'
       logout: 'ログアウト'
-      index: 'みんなの投稿'
-      posted: '自分の投稿'
-      favorites: 'お気に入り'
+      posted: '自分のレビュー'
+      favorites: '保存したレビュー'
     footer:
       delete: '退会のお手続き'
     pagination:
@@ -60,7 +58,6 @@ ja:
     recommend: 'おすすめ'
     new:
       title: 'レビュー作成'
-      new_review: 'レビューを投稿する'
       caution: '*は必須項目です。'
       submit: '投稿する'
     edit:
