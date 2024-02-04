@@ -4,24 +4,19 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :web_page, validate: false
 
-  exnum target: { everyone: 0, actor: 1, director: 2, other: 3 }
+  exnum genre: { straightplay: 0, reading: 1, improvisation: 2, clown: 3, musical: 4, action: 5, theatergame: 6, movie: 7, other: 8 }
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
 
-  validates :title, length: { maximum: 200 }
   validates :content, presence: true, length: { maximum: 1000 }
   validates :implementation_start_date, presence: true
   validates :implementation_last_date, presence: true
   validate :check_implementation_date
   validates :fee, numericality: true, allow_blank: true
-  validate :check_recruitment_date
-
-  def set_default_title(url)
-    self.title = OpenGraph.new(url).title
-  end
+  validates :satisfaction, presence: true
 
   def save_tag(sent_tags)
     current_tags = tags.pluck(:name) unless tags.nil?
@@ -47,21 +42,14 @@ class Review < ApplicationRecord
     errors.add(:implementation_last_date, 'が正しくありません')
   end
 
-  def check_recruitment_date
-    return if recruitment_start_date.nil?
-    return if recruitment_start_date <= recruitment_last_date
-
-    errors.add(:recruitment_last_date, 'が正しくありません')
-  end
-
-  # prefecture
+  # arrays
   def self.prefectures
     @@prefectures
   end
 
   # ransack
   def self.ransackable_attributes(_auth_object = nil)
-    %w[title content prefecture target]
+    %w[content prefecture target genre]
   end
 
   def self.ransackable_associations(_auth_object = nil)

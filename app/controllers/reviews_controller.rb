@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.new(review_params)
     set_organizer_and_webpage
 
-    @review.set_default_title(url_param) if @review.title.blank?
+    @review.satisfaction = @review.satisfaction.round(-1)
 
     if @review.save && @review.save_tag(tag_params)
       redirect_to root_path, success: t('flash.reviews.success.create')
@@ -40,10 +40,7 @@ class ReviewsController < ApplicationController
     update_params = review_params
     set_organizer_and_webpage
 
-    if @review.title.blank?
-      @review.set_default_title(url_param)
-      update_params[:title] = @review.title
-    end
+    update_params[:satisfaction] = update_params[:satisfaction].to_i.round(-1)
 
     if @review.update(update_params) && @review.save_tag(tag_params)
       redirect_to review_path(@review), success: t('flash.reviews.success.update')
@@ -75,7 +72,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :content, :implementation_start_date, :implementation_last_date, :recruitment_start_date, :recruitment_last_date, :prefecture, :fee, :target)
+    params.require(:review).permit(:content, :implementation_start_date, :implementation_last_date, :satisfaction, :genre, :prefecture, :fee)
   end
 
   def url_param

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_17_163116) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_03_112034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,17 +44,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_17_163116) do
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "web_page_id", null: false
-    t.string "title", limit: 200, null: false
     t.string "content", limit: 1000, null: false
     t.datetime "implementation_start_date", null: false
     t.datetime "implementation_last_date", null: false
-    t.datetime "recruitment_start_date"
-    t.datetime "recruitment_last_date"
     t.string "prefecture", limit: 5
     t.integer "fee"
-    t.integer "target", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tendency"
+    t.integer "satisfaction", default: 50
+    t.integer "genre", default: 0
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["web_page_id"], name: "index_reviews_on_web_page_id"
   end

@@ -1,3 +1,47 @@
+.font-handwriting {
+  font-family: Tsukushi A Round Gothic,
+    Yu Gothic,
+    YuGothic,
+    Hiragino Kaku Gothic ProN,
+    Meiryo,
+    Avenir,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+.new-icon {
+  width: 22.68px;
+  height: 25.92px;
+  transition: all 0.3s ease-out;
+}
+
+.new-icon:hover {
+  width: calc(22.68px * 1.15);
+  height: calc(25.92px * 1.15);
+}
+
+::-webkit-resizer {
+  display: none;
+}
+
+.card,
+.card-ogp,
+.link-on-card a {
+  position: relative;
+  z-index: 10;
+}
+
+.card-sentence a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .document-styles {
   margin-left: auto;
   margin-right: auto;
@@ -100,4 +144,223 @@
 
 .info {
   font-family: Zen Maru Gothic, serif;
+}
+
+input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  /* カーソルを分かりやすく */
+  outline: none;
+  /* スライダーのアウトラインは見た目がキツイので消す */
+  height: 14px;
+  /* バーの高さ */
+  background: linear-gradient(90deg, rgba(226, 242, 244, 1), rgba(114, 207, 223, 1));
+  /* バーの背景色 */
+  border-radius: 10px;
+  /* バーの両端の丸み */
+}
+
+/* WebKit向けのつまみ */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* デフォルトのつまみのスタイルを解除 */
+  background: #F9FAFB;
+  /* 背景色 */
+  width: 20px;
+  /* 幅 */
+  height: 20px;
+  /* 高さ */
+  border-radius: 50%;
+  /* 円形に */
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  /* 影 */
+  border: solid 1px rgb(241 245 249);
+}
+
+/* Moz向けのつまみ */
+input[type="range"]::-moz-range-thumb {
+  background: radial-gradient(rgba(114, 114, 114, 1), rgba(233, 233, 233, 1));
+  /* 背景色 */
+  width: 20px;
+  /* 幅 */
+  height: 20px;
+  /* 高さ */
+  border-radius: 50%;
+  /* 円形に */
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  /* 影 */
+  border: none;
+  /* デフォルトの線を消す */
+}
+
+/* Firefoxで点線が周りに表示されてしまう問題の解消 */
+input[type="range"]::-moz-focus-outer {
+  border: 0;
+}
+
+/* つまみをドラッグしているときのスタイル */
+input[type="range"]:active::-webkit-slider-thumb {
+  box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.15);
+}
+
+.range {
+  position: relative;
+}
+
+.range i {
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 4px;
+  background-color: rgb(107, 114, 128);
+  top: 18;
+}
+
+.range span {
+  display: block;
+  position: absolute;
+  font-size: 0.7rem;
+  color: rgb(107, 114, 128);
+  top: 1.2rem;
+}
+
+.range span:nth-child(2) {
+  left: 0;
+}
+
+.range span:nth-child(3) {
+  left: calc(25% - 1.3rem);
+}
+
+.range span:nth-child(4) {
+  left: calc(50% - 0.7rem);
+}
+
+.range span:nth-child(5) {
+  right: calc(25% - 1.3rem);
+}
+
+.range span:nth-child(6) {
+  right: 0;
+}
+
+.satisfaction {
+  background-image: linear-gradient(90deg, rgba(61, 200, 194, 1), rgba(206, 216, 0, 1) 30%, rgba(255, 174, 68, 1) 74%, rgba(234, 114, 0, 1));
+}
+
+.from-0 {
+  --tw-gradient-from-position: 0%;
+}
+
+.from-10 {
+  --tw-gradient-from-position: 10%;
+}
+
+.from-20 {
+  --tw-gradient-from-position: 20%;
+}
+
+.from-30 {
+  --tw-gradient-from-position: 30%;
+}
+
+.from-40 {
+  --tw-gradient-from-position: 40%;
+}
+
+.from-50 {
+  --tw-gradient-from-position: 50%;
+}
+
+.from-60 {
+  --tw-gradient-from-position: 60%;
+}
+
+.from-70 {
+  --tw-gradient-from-position: 70%;
+}
+
+.from-80 {
+  --tw-gradient-from-position: 80%;
+}
+
+.from-90 {
+  --tw-gradient-from-position: 90%;
+}
+
+.from-100 {
+  --tw-gradient-from-position: 100%;
+}
+
+.to-0 {
+  --tw-gradient-to-position: 0%;
+}
+
+.to-10 {
+  --tw-gradient-to-position: 10%;
+}
+
+.to-20 {
+  --tw-gradient-to-position: 20%;
+}
+
+.to-30 {
+  --tw-gradient-to-position: 30%;
+}
+
+.to-40 {
+  --tw-gradient-to-position: 40%;
+}
+
+.to-50 {
+  --tw-gradient-to-position: 50%;
+}
+
+.to-60 {
+  --tw-gradient-to-position: 60%;
+}
+
+.to-70 {
+  --tw-gradient-to-position: 70%;
+}
+
+.to-80 {
+  --tw-gradient-to-position: 80%;
+}
+
+.to-90 {
+  --tw-gradient-to-position: 90%;
+}
+
+.to-100 {
+  --tw-gradient-to-position: 100%;
+}
+
+.tagify {
+  --tags-border-color: rgb(229 231 235);
+}
+
+@media (max-width: 768px) {
+  .tagify {
+    --tags-border-color: transparent;
+    --tags-hover-border-color: transparent;
+    --tags-focus-border-color: transparent;
+  }
+
+  .tagify--focus {
+    --tags-border-color: transparent !important;
+  }
+
+  .tagify__input {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

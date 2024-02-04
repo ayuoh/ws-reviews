@@ -1,6 +1,5 @@
 <div class="py-8 px-4 mx-auto max-w-2xl">
   <div class="mb-6">
-    <h2 class="mb-2 text-xl font-bold"><%= t('.edit_review') %></h2>
     <p class="text-sm text-[rgb(239,123,81)]"><%= t('.caution') %></p>
   </div>
   <%= render 'form', { review: @review, url: review_path(@review), submit: 'reviews.edit.submit' } %>
