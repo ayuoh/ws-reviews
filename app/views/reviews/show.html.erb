@@ -78,12 +78,15 @@
     <% end %>
 
     <!-- 満足度 -->
-    <div class="flex items-center gap-2 flex-row mt-4 mb-1 pb-[8px]">
-      <div class="text-sm"><%= Review.human_attribute_name(:satisfaction) %></div>
-      <div class="w-[calc(100%-3.5rem)] relative">
+    <div class="flex items-center gap-2 flex-row mt-3 mb-3 font-handwriting">
+      <div class="text-sm">
+        <%= Review.human_attribute_name(:satisfaction) %>
+      </div>
+      <div class="w-[calc(100%-7.5rem)] relative">
         <div class="w-[calc(100%-1px)] h-[calc(1rem-0.2px)] rounded-lg satisfaction absolute top-[-7.9px]"></div>
         <div class="w-full h-4 rounded-lg bg-gradient-to-r from-[transparent] from-<%= @review.satisfaction %> to-gray-100 to-<%= @review.satisfaction %> absolute top-[-8px]"></div>
       </div>
+      <div class="text-xs tracking-[-0.1em]"><%= @review.evaluate_satisfaction %></div>
     </div>
 
     <!-- reviewコンテンツ -->

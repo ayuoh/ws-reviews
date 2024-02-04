@@ -22,7 +22,7 @@
           <%= f.label :content, class: 'block mb-2 text-sm font-medium' %>
           <span class="inline-block text-sm rounded-lg text-[rgb(239,123,81)]"><%= t('default.form.required') %></span><span class="inline-block text-sm"><%= t('default.form.content_caution') %></span>
       </div>
-      <%= f.text_area :content, required: true, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 h-40 placeholder-gray-400', placeholder: t('default.form.content_placeholder') %>
+      <%= f.text_area :content, required: true, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm text-gray-900 focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 h-40 placeholder-gray-400', placeholder: t('default.form.content_placeholder') %>
     </div>
 
     <!-- URL -->
@@ -32,7 +32,7 @@
           <span class="inline-block text-sm rounded-lg text-[rgb(239,123,81)]"><%= t('default.form.required') %></span>
           <span class="ml-2 text-xs text-gray-500 mb-2 flex items-end">※Xの投稿URLなど一部使用できないURLがございます。ご了承ください。</span>
       </div>
-      <%= f.url_field :url, required: true, value: @url, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400', placeholder: t('default.form.url_placeholder') %>
+      <%= f.url_field :url, required: true, value: @url, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm text-gray-900 focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400', placeholder: t('default.form.url_placeholder') %>
     </div>
 
     <!-- 実施期間-->
@@ -43,11 +43,11 @@
       </div>
       <div class="flex items-center gap-2 mb-4 justify-between md:justify-normal">
         <div class="w-2/5 md:w-1/3">
-          <%= f.date_field :implementation_start_date, required: true, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400' %>
+          <%= f.date_field :implementation_start_date, required: true, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm text-gray-900 focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400' %>
         </div>
         〜
         <div class="w-2/5 md:w-1/3">
-          <%= f.date_field :implementation_last_date, required: true, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400' %>
+          <%= f.date_field :implementation_last_date, required: true, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm text-gray-900 focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400' %>
         </div>
       </div>
     </div>
@@ -55,25 +55,25 @@
     <!-- ジャンル -->
     <div class="pb-4 border-b border-dotted border-[#c9e8f8] md:border-b-0">
       <%= f.label :genre, class: 'block mb-2 text-sm font-medium' %>
-      <%= f.select :genre, Review.genres_for_select, {}, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400' %>
+      <%= f.select :genre, Review.genres_for_select, {}, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm text-gray-900 focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400' %>
     </div>
 
     <!-- タグ -->
     <div class="pb-4 border-b border-dotted border-[#c9e8f8] md:border-b-0" data-controller="tag">
       <%= f.label :tag_names, class: 'block mb-2 text-sm font-medium' %>
-      <%= f.text_field :tag_names, value: @tags, id: 'tags-input', class: 'tagify border-0 md:border-[1px] border-gray-200 rounded-lg text-sm focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400', placeholder: t('default.form.tag_placeholder'), data: { target: 'tagify.tagify'} %>
+      <%= f.text_field :tag_names, value: @tags, id: 'tags-input', class: 'tagify border-0 md:border-[1px] border-gray-200 rounded-lg text-sm text-gray-900 focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400', placeholder: t('default.form.tag_placeholder'), data: { target: 'tagify.tagify'} %>
     </div>
 
     <!-- 開催地 -->
     <div class="pb-4 border-b border-dotted border-[#c9e8f8] md:border-b-0">
       <%= f.label :prefecture, class: 'block mb-2 text-sm font-medium' %>
-      <%= f.select :prefecture, Review.prefectures, { include_blank: '' }, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400' %>
+      <%= f.select :prefecture, Review.prefectures, { include_blank: '' }, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm text-gray-900 focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400' %>
     </div>
 
     <!-- 料金 -->
     <div class="pb-4">
       <%= f.label :fee, class: 'block mb-2 text-sm font-medium' %>
-      <%= f.text_field :fee, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400', placeholder: t('default.form.fee_placeholder') %>
+      <%= f.text_field :fee, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm text-gray-900 focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400', placeholder: t('default.form.fee_placeholder') %>
     </div>
   </div>
   <%= f.submit t(submit), class: "block mx-auto align-center w-1/2 md:w-1/3 px-5 py-3 mt-4 md:mt-6 text font-medium text-center text-white shadow bg-[rgb(115,207,223)] hover:bg-[rgb(105,189,204)] transition-colors rounded-lg focus:ring-4 focus:ring-[#c9e8f8]" %>
