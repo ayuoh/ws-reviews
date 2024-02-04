@@ -1,6 +1,5 @@
 @import "@yaireo/tagify/dist/tagify.css";
 @import "@yaireo/tagify/src/tagify.scss";
-@import "./custom.css";
 
 :root {
   -app-blue: rgb(201 232 248);
@@ -44,5 +43,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require custom
  *= require_self
  */
