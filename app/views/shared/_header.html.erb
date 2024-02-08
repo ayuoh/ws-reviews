@@ -21,7 +21,10 @@
     <div class="flex justify-end">
       <ul class="flex flex-col mt-3 font-medium border border-gray-100 rounded-lg bg-white rtl:space-x-reverse w-[9em] text-right">
         <li>
-          <%= link_to t('views.header.posted'), own_path(current_user.twitter_name), class: 'block text-sm w-full text-[rgb(115,207,223)] hover:text-[rgb(105,189,204)] px-2 pt-2 pb-1' %>
+          <%= link_to t('views.header.profile'), edit_user_path(current_user), class: 'block text-sm w-full text-[rgb(115,207,223)] hover:text-[rgb(105,189,204)] px-2 pt-2 pb-1' %>
+        </li>
+        <li>
+          <%= link_to t('views.header.posted'), own_path(current_user.twitter_name), class: 'block text-sm w-full text-[rgb(115,207,223)] hover:text-[rgb(105,189,204)] px-2 py-1' %>
         </li>
         <li>
           <%= link_to t('views.header.favorites'), favorites_reviews_path, class: 'block text-sm w-full text-[rgb(115,207,223)] hover:text-[rgb(105,189,204)] px-2 py-1' %>

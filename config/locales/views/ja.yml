@@ -48,6 +48,7 @@ ja:
       logout: 'ログアウト'
       posted: '自分のレビュー'
       favorites: '保存したレビュー'
+      profile: 'プロフィール'
     footer:
       delete: '退会のお手続き'
     pagination:

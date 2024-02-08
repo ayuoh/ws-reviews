@@ -8,3 +8,4 @@ import TagController from "./tag_controller"
 application.register("tag", TagController)
 
 import "./range"
+import "./switch"
