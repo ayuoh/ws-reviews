@@ -11,7 +11,7 @@
 
       <div>
         <button data-collapse-toggle="navbar-sticky" type="button" class="flex items-center"  aria-controls="navbar-sticky" aria-expanded="false">
-          <%= image_tag  current_user.avatar, class: 'block rounded-[50%] max-w-full w-[40px] md:w-[40px] h-[40px] md:h-[40px]' %>
+          <%= image_tag  ActiveDecorator::Decorator.instance.decorate(current_user).avatar_img, class: 'block rounded-[50%] max-w-full w-[40px] md:w-[40px] h-[40px] md:h-[40px]' %>
         </button>
       </div>
     </div>
@@ -24,7 +24,7 @@
           <%= link_to t('views.header.profile'), edit_user_path(current_user), class: 'block text-sm w-full text-[rgb(115,207,223)] hover:text-[rgb(105,189,204)] px-2 pt-2 pb-1' %>
         </li>
         <li>
-          <%= link_to t('views.header.posted'), own_path(current_user.twitter_name), class: 'block text-sm w-full text-[rgb(115,207,223)] hover:text-[rgb(105,189,204)] px-2 py-1' %>
+          <%= link_to t('views.header.posted'), own_path(current_user.id), class: 'block text-sm w-full text-[rgb(115,207,223)] hover:text-[rgb(105,189,204)] px-2 py-1' %>
         </li>
         <li>
           <%= link_to t('views.header.favorites'), favorites_reviews_path, class: 'block text-sm w-full text-[rgb(115,207,223)] hover:text-[rgb(105,189,204)] px-2 py-1' %>

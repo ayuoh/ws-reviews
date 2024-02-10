@@ -5,7 +5,7 @@ ja:
         name: 'ユーザー名'
         description: '自己紹介'
         avatar: 'アイコン'
-        public: 'Xアカウントを公開する'
+        public_twitter: 'Xアカウントを公開する'
       review:
         web_page: 'URL'
         content: 'レビュー内容'

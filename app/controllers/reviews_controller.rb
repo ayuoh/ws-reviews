@@ -65,7 +65,7 @@ class ReviewsController < ApplicationController
   end
 
   def own_reviews
-    @reviews = Review.joins(:user).where(user: { twitter_name: params[:twitter_name] }).includes(:user, :tags, :web_page).order(created_at: :desc).page params[:page]
+    @reviews = Review.joins(:user).where(user: { id: params[:user_id] }).includes(:user, :tags, :web_page).order(created_at: :desc).page params[:page]
     render :my_reviews
   end
 

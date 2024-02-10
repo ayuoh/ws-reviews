@@ -83,7 +83,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_134126) do
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "public", default: false, null: false
+    t.boolean "public_twitter", default: false, null: false
     t.index ["twitter_id"], name: "index_users_on_twitter_id", unique: true
   end
 

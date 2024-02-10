@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :reviews do
     get 'favorites', on: :collection
   end
-  get 'own/:twitter_name', to: 'reviews#own_reviews', as: :own
+  get 'own/:user_id', to: 'reviews#own_reviews', as: :own
 
   resources :favorites, only: %i[create destroy]
 
