@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    @user.storage_avatar_image.purge
+    @user.storage_avatar_image.purge if params[:storage_avatar_image].present?
 
     respond_to do |format|
       if @user.update(profile_params)

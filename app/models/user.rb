@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :twitter_name, presence: true, uniqueness: true
   validates :twitter_id, presence: true, uniqueness: true
+  validate :storage_avatar_image_size
 
   def own?(object)
     self.id == object.user_id
@@ -28,5 +29,11 @@ class User < ApplicationRecord
 
   def favorite?(review)
     favorite_reviews.include?(review)
+  end
+
+  def storage_avatar_image_size
+    if storage_avatar_image.attached? && storage_avatar_image.blob.byte_size > 1.megabytes
+      errors.add(:storage_avatar_image, '：1MB以下のファイルをアップロードしてください')
+    end
   end
 end
