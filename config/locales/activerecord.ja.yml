@@ -2,9 +2,10 @@ ja:
   activerecord:
     attributes:
       user:
-        name: '名前'
+        name: 'ユーザー名'
         description: '自己紹介'
         avatar: 'アイコン'
+        public_twitter: 'Xアカウントを公開する'
       review:
         web_page: 'URL'
         content: 'レビュー内容'

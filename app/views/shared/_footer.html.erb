@@ -9,11 +9,6 @@
       <div ><%= link_to t('default.info'), info_path, class: "block text-left mt-2 md:mt-0" %></div>
       <div ><%= link_to t('default.terms'), terms_path, class: "block text-left mt-2 md:mt-0" %></div>
       <div><%= link_to t('default.privacy'), privacy_path, class: "block text-left mt-1 md:mt-0" %></div>
-      <div class="flex mt-1 md:mt-0">
-        <button data-modal-target="default-modal" data-modal-toggle="default-modal" type="button">
-          <%= t('views.footer.delete') %>
-        </button>
-      </div>
     </div>
     <div class='copyright'>
       <div>
@@ -24,4 +19,3 @@
     </div>
   </div>
 </footer>
-<%= render 'users/destroy' %>

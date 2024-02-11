@@ -1,0 +1,22 @@
+<% if review.user.public_twitter %>
+  <%= link_to "https://twitter.com/#{review.user.twitter_name}", target: :_blank, rel: "noopener noreferrer" do %>
+  <div class="flex items-center">
+    <div class="basis-10 md:basis-18 mr-2 md:mr-4 text-xs">
+      <%= image_tag review.user.avatar_img, class: 'rounded-[50%] max-w-full min-w-10 w-10' %>
+    </div>
+    <div>
+      <%= review.user.name %>
+      <div class="block text-xs md:text-sm text-gray-500">@<%= review.user.twitter_name %></div>
+    </div>
+  </div>
+  <% end %>
+<% else %>
+  <div class="flex items-center">
+    <div class="basis-10 md:basis-18 mr-2 md:mr-4 text-xs">
+      <%= image_tag review.user.avatar_img, class: 'rounded-[50%] max-w-full min-w-10 w-10' %>
+    </div>
+    <div>
+      <%= review.user.name %>
+    </div>
+  </div>
+<% end %>

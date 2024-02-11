@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ReviewDecorator
-  def implementation_tarm
+  def implementation_term
     "#{implementation_start_date.strftime('%Y/%m/%d')} 〜 #{implementation_last_date.strftime('%Y/%m/%d')}"
   end
 
@@ -20,6 +20,7 @@ module ReviewDecorator
   end
 
   def evaluate_satisfaction
+    return '最高！' if satisfaction == 100
     return '高い！' if satisfaction >= 80
     return 'やや高い' if satisfaction >= 60
     return '普通' if satisfaction >= 40
