@@ -9,3 +9,4 @@ application.register("tag", TagController)
 
 import "./range"
 import "./switch"
+import "./image_button"
