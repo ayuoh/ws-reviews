@@ -2,6 +2,8 @@
   <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
     <div>
       <%= image_tag current_user.avatar_img_profile, class: 'rounded-[50%] max-w-full min-w-20 w-20 mx-auto' %>
+      <%= f.label :storage_avatar_image %>
+      <%= f.file_field :storage_avatar_image, accept: 'image/*' %>
 
       <div class="my-6 px-4 flex items-center justify-between gap-8 md:max-w-[70%] md:mx-auto">
           <%= f.label :public_twitter, class: 'text-sm font-medium' %>

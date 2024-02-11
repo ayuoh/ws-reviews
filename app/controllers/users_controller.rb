@@ -4,11 +4,17 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update(profile_params)
-      redirect_to edit_user_path, success: t('flash.reviews.success.update')
-    else
-      flash.now[:danger] = t('flash.reviews.failed.update')
-      render :edit, status: :unprocessable_entity
+    @user.storage_avatar_image.purge
+
+    respond_to do |format|
+      if @user.update(profile_params)
+        format.html { redirect_to edit_user_path, success: t('flash.reviews.success.update') }
+        format.json { render :edit, status: :ok, location: @user }
+      else
+        flash.now[:danger] = t('flash.reviews.failed.update')
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -24,6 +30,6 @@ class UsersController < ApplicationController
   end
 
   def profile_params
-    params.require(:user).permit(:name, :public_twitter, :avatar, :avatar_cache)
+    params.require(:user).permit(:name, :public_twitter, :avatar, :storage_avatar_image, :storage_avator_image_cache)
   end
 end
