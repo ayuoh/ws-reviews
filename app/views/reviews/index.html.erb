@@ -8,6 +8,9 @@
 
 <% if @reviews.present? %>
   <div>
+    <%= render 'reviews/sort_buttons' %>
+  </div>
+  <div>
     <%= render @reviews %>
   </div>
 <% else %>
