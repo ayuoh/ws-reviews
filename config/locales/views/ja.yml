@@ -67,7 +67,7 @@ ja:
       caution: '*は必須項目です。'
       submit: '変更する'
     recommended_review:
-      recommend: 'あなたにおすすめのレビュー'
+      recommend: 'こちらのレビューも読みませんか？'
   user_sessions:
     login: 'ログイン'
     login_message: 'に同意した上で、ログインしてください。'
