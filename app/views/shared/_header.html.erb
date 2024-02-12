@@ -11,7 +11,7 @@
 
       <div>
         <button data-collapse-toggle="navbar-sticky" type="button" class="flex items-center"  aria-controls="navbar-sticky" aria-expanded="false">
-          <%= image_tag  ActiveDecorator::Decorator.instance.decorate(current_user).avatar_img, class: 'block rounded-[50%] max-w-full w-[40px] md:w-[40px] h-[40px] md:h-[40px]' %>
+          <%= image_tag  ActiveDecorator::Decorator.instance.decorate(current_user).avatar_img, class: 'block rounded-[50%] max-w-full w-[40px] md:w-[40px] h-[40px] md:h-[40px] object-cover' %>
         </button>
       </div>
     </div>

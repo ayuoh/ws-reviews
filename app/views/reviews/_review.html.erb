@@ -4,7 +4,7 @@
     <div class="flex items-center link-on-card">
       <%= link_to own_path(review.user.id), class: 'hover:opacity-80' do %>
         <div class="flex items-center text-sm">
-            <%= image_tag review.user.avatar_img, class: 'rounded-[50%] max-w-full min-w-10 w-10 h-10 mr-2' %><%= review.user.name %>
+            <%= image_tag review.user.avatar_img, class: 'rounded-[50%] max-w-full min-w-10 w-10 h-10 mr-2 object-cover' %><%= review.user.name %>
         </div>
       <% end %>
     </div>
