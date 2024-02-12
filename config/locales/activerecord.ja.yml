@@ -6,6 +6,7 @@ ja:
         description: '自己紹介'
         avatar: 'アイコン'
         public_twitter: 'Xアカウントを公開する'
+        storage_avatar_image: 'アイコン画像'
       review:
         web_page: 'URL'
         content: 'レビュー内容'
