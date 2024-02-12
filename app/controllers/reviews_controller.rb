@@ -3,8 +3,9 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy]
 
   def index
+    order = sort_by
     @q = Review.ransack(params[:q])
-    @reviews = @q.result(distinct: true).order(created_at: :desc).includes(:user, :tags, :web_page).page params[:page]
+    @reviews = @q.result(distinct: true).order(order[0]).order(order[1]).includes(:user, :tags, :web_page).page params[:page]
   end
 
   def show
@@ -92,6 +93,26 @@ class ReviewsController < ApplicationController
     organizer = Organizer.find_or_save_organizer(url_param)
     web_page = organizer.web_pages.find_or_create_by(url: url_param)
     @review.web_page_id = web_page.id
+  end
+
+  def sort_by
+    if params[:by] == 'satisfaction'
+      if params[:sort] == 'asc'
+        order_1 = [satisfaction: :asc]
+      else
+        order_1 = [satisfaction: :desc]
+      end
+      order_2 = [created_at: :desc]
+    else
+      if params[:sort] == 'asc'
+        order_1 = [created_at: :asc]
+      else
+        order_1 = [created_at: :desc]
+      end
+      order_2 = []
+    end
+
+    [order_1, order_2]
   end
 
   def recommended_review

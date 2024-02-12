@@ -7,6 +7,7 @@ import { application } from "./application"
 import TagController from "./tag_controller"
 application.register("tag", TagController)
 
-import "./range"
-import "./switch"
-import "./image_button"
+// import "./sort_button"
+// import "./range"
+// import "./switch"
+// import "./image_button"
