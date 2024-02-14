@@ -98,21 +98,21 @@ class ReviewsController < ApplicationController
   def sort_by
     if params[:by] == 'satisfaction'
       if params[:sort] == 'asc'
-        order_1 = [satisfaction: :asc]
+        first_priority_order = [satisfaction: :asc]
       else
-        order_1 = [satisfaction: :desc]
+        first_priority_order = [satisfaction: :desc]
       end
-      order_2 = [created_at: :desc]
+      second_priority_order = [created_at: :desc]
     else
       if params[:sort] == 'asc'
-        order_1 = [created_at: :asc]
+        first_priority_order = [created_at: :asc]
       else
-        order_1 = [created_at: :desc]
+        first_priority_order = [created_at: :desc]
       end
-      order_2 = []
+      second_priority_order = []
     end
 
-    [order_1, order_2]
+    [first_priority_order, second_priority_order]
   end
 
   def recommended_review
