@@ -9,6 +9,11 @@ module ReviewDecorator
     "#{created_at.strftime('%Y/%m/%d')} 投稿"
   end
 
+  def format_organizer
+    name = web_page.organizer.name
+    name.present? ? name : '-'
+  end
+
   def format_prefecture
     prefecture.present? ? prefecture : '-'
   end
@@ -27,5 +32,12 @@ module ReviewDecorator
     return 'やや低い' if satisfaction >= 20
 
     '低い…'
+  end
+
+  def ogp_title(title, want_url = false)
+    return title if title.present? && title != "502 Bad Gateway"
+    return web_page.url if want_url
+
+    ""
   end
 end

@@ -42,7 +42,8 @@
         <div class="basis-[5.5rem] md:basis-40 mr-2 md:mr-3 h-full w-1/4"><%= image_tag ogp.images[0] || "ogp.png", class: 'rounded-l-[0.9rem] h-full object-cover object-center' %></div>
 
         <div class="pr-4 w-3/4">
-          <p class="line-clamp-1"><%= ogp.title || "" %></p>
+          <p class="line-clamp-1 text-sm font-bold"><%= review.web_page.organizer.name %></p>
+          <p class="line-clamp-1 text-sm"><%= review.ogp_title(ogp.title, true) %></p>
           <p class="text-gray-400 text-[0.8rem] line-clamp-1 md:line-clamp-2 leading-5"><%= ogp.description || "" %></p>
         </div>
       </div>

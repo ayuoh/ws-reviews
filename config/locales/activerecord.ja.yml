@@ -19,6 +19,7 @@ ja:
         tag_names: 'タグ'
         satisfaction: '満足度'
         genre: 'ジャンル'
+        org_name: '主催者'
     enum:
       review:
         genre:
