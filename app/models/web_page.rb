@@ -8,7 +8,7 @@ class WebPage < ApplicationRecord
   # validate
   def response_code200
     response = HTTP.get(url)
-    return if response.code == 200
+    return if response.code >= 200 && response.code < 400
 
     errors.add(:url, 'urlが正しくありません。')
   end

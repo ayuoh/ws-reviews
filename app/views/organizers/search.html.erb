@@ -1,0 +1,5 @@
+<% @organizers.each do |org| %>
+  <li class="w-[15rem] md:w-[22rem] flex items-center gap-x-3.5 py-2 px-3 rounded-lg hover:bg-[rgb(201,232,248)] focus:ring-2 focus:ring-[rgb(201,232,248)]" role="option" data-autocomplete-value="<%= org.id %>" data-autocomplete-label="<%= org.name %>">
+    <%= org.name %>
+  </li>
+<% end %>

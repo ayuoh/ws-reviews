@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_12_110442) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_14_151106) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,11 +62,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_12_110442) do
   end
 
   create_table "organizers", force: :cascade do |t|
-    t.string "domain", limit: 260, null: false
     t.string "name", limit: 50
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["domain"], name: "index_organizers_on_domain", unique: true
+    t.index ["name"], name: "index_organizers_on_name"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -118,7 +117,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_12_110442) do
   create_table "web_pages", force: :cascade do |t|
     t.bigint "organizer_id", null: false
     t.string "url", limit: 260, null: false
-    t.string "opg_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organizer_id"], name: "index_web_pages_on_organizer_id"
