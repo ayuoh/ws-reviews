@@ -57,7 +57,7 @@
       <%= f.label :org_name, class: 'block mb-2 text-sm font-medium' %>
       <div data-controller="autocomplete" data-autocomplete-url-value="/organizers/search" role="combobox">
         <%= f.text_field :org_name, value: @org_name, data: { autocomplete_target: 'input' }, class: 'border-0 md:border-[1px] border-gray-200 rounded-lg text-sm text-gray-900 focus:ring-[transparent] md:focus:ring-[#c9e8f8] focus:border-[transparent] md:focus:border-[#c9e8f8] block w-full px-0 md:p-2.5 placeholder-gray-400', placeholder: t('default.form.org_name_placeholder') %>
-        <%= f.hidden_field :org_name, data: { autocomplete_target: 'hidden' } %>
+        <%= f.hidden_field :orgs, data: { autocomplete_target: 'hidden' } %>
         <ul class="list-group bg-white absolute w-full md:text-sm max-w-max z-40 border border-[rgb(201,232,248)] rounded-lg" data-autocomplete-target="results"></ul>
       </div>
     </div>
