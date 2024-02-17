@@ -32,4 +32,5 @@ Rails.application.routes.draw do
 
   get 'tags/search', to: 'tags#search'
   get 'tags/all_search', to: 'tags#all_search'
+  get 'organizers/search', to: 'organizers#search'
 end

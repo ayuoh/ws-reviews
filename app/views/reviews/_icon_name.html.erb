@@ -2,7 +2,7 @@
   <%= link_to "https://twitter.com/#{review.user.twitter_name}", target: :_blank, rel: "noopener noreferrer" do %>
   <div class="flex items-center">
     <div class="basis-10 md:basis-18 mr-2 md:mr-4 text-xs">
-      <%= image_tag review.user.avatar_img, class: 'rounded-[50%] max-w-full min-w-10 w-10 h-10' %>
+      <%= image_tag review.user.avatar_img, class: 'rounded-[50%] max-w-full min-w-10 w-10 h-10 object-cover' %>
     </div>
     <div>
       <%= review.user.name %>
@@ -13,7 +13,7 @@
 <% else %>
   <div class="flex items-center">
     <div class="basis-10 md:basis-18 mr-2 md:mr-4 text-xs">
-      <%= image_tag review.user.avatar_img, class: 'rounded-[50%] max-w-full min-w-10 w-10 h-10' %>
+      <%= image_tag review.user.avatar_img, class: 'rounded-[50%] max-w-full min-w-10 w-10 h-10 object-cover' %>
     </div>
     <div>
       <%= review.user.name %>

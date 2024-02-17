@@ -12,6 +12,7 @@ ja:
       content_caution: '（1000文字以内）'
       url_placeholder: 'https://example.com'
       content_placeholder: 'どんなWSだった？'
+      org_name_placeholder: '主催者は？'
       tag_placeholder: '［Enter］キーで区切って入力してね'
       fee_placeholder: '数字で入力してね'
       search: '検索'
@@ -52,8 +53,8 @@ ja:
     footer:
       delete: '退会のお手続き'
     pagination:
-      first: '最新'
-      last: '最古'
+      first: '最初'
+      last: '最後'
   reviews:
     review: 'レビュー'
     recommend: 'おすすめ'
@@ -65,9 +66,9 @@ ja:
       title: 'レビュー編集'
       edit_review: 'レビューを編集する'
       caution: '*は必須項目です。'
-      submit: '変更する'
+      submit: '更新する'
     recommended_review:
-      recommend: 'あなたにおすすめのレビュー'
+      recommend: 'こちらのレビューも読みませんか？'
   user_sessions:
     login: 'ログイン'
     login_message: 'に同意した上で、ログインしてください。'

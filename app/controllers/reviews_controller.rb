@@ -26,6 +26,7 @@ class ReviewsController < ApplicationController
       redirect_to root_path, success: t('flash.reviews.success.create')
     else
       flash.now[:danger] = t('flash.reviews.failed.create')
+      @org_name = org_param
       @url = url_param
       @tags = params.require(:review)[:tag_names]
       render :new, status: :unprocessable_entity
@@ -33,6 +34,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @org_name = @review.web_page.organizer.name
     @url = @review.web_page.url
     @tags = @review.tags.map { |tag| tag.name }.join(', ')
   end
@@ -47,6 +49,7 @@ class ReviewsController < ApplicationController
       redirect_to review_path(@review), success: t('flash.reviews.success.update')
     else
       flash.now[:danger] = t('flash.reviews.failed.update')
+      @org_name = org_param
       @url = url_param
       @tags = params.require(:review)[:tag_names]
       render :edit, status: :unprocessable_entity
@@ -80,6 +83,10 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:url)[:url]
   end
 
+  def org_param
+    params.require(:review).permit(:org_name)[:org_name]
+  end
+
   def tag_params
     tags = params.require(:review)[:tag_names].split(',')
     tags.map!(&:strip)
@@ -90,29 +97,36 @@ class ReviewsController < ApplicationController
   end
 
   def set_organizer_and_webpage
-    organizer = Organizer.find_or_save_organizer(url_param)
-    web_page = organizer.web_pages.find_or_create_by(url: url_param)
+    # web pageの検索。主催者が空欄だったらそのまま検索・保存。主催者が入力していたらorganizer_idを更新。
+    web_page = WebPage.find_or_initialize_by(url: url_param)
+    if org_param.present?
+      # 主催者の検索・保存
+      organizer = Organizer.find_or_create_by(name: org_param)
+      web_page.update(organizer_id: organizer.id)
+    elsif web_page.organizer_id.nil?
+      web_page = Organizer.find(1).web_pages.find_or_create_by(url: url_param)
+    end
     @review.web_page_id = web_page.id
   end
 
   def sort_by
     if params[:by] == 'satisfaction'
       if params[:sort] == 'asc'
-        order_1 = [satisfaction: :asc]
+        first_priority_order = [satisfaction: :asc]
       else
-        order_1 = [satisfaction: :desc]
+        first_priority_order = [satisfaction: :desc]
       end
-      order_2 = [created_at: :desc]
+      second_priority_order = [created_at: :desc]
     else
       if params[:sort] == 'asc'
-        order_1 = [created_at: :asc]
+        first_priority_order = [created_at: :asc]
       else
-        order_1 = [created_at: :desc]
+        first_priority_order = [created_at: :desc]
       end
-      order_2 = []
+      second_priority_order = []
     end
 
-    [order_1, order_2]
+    [first_priority_order, second_priority_order]
   end
 
   def recommended_review

@@ -32,8 +32,8 @@ class User < ApplicationRecord
   end
 
   def storage_avatar_image_size
-    if storage_avatar_image.attached? && storage_avatar_image.blob.byte_size > 1.megabytes
-      errors.add(:storage_avatar_image, '：1MB以下のファイルをアップロードしてください')
+    if storage_avatar_image.attached? && storage_avatar_image.blob.byte_size > 2.megabytes
+      errors.add(:storage_avatar_image, '：2MB以下のファイルをアップロードしてください')
     end
   end
 end
